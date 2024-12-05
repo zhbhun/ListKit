@@ -55,9 +55,7 @@ ItemIdentifier : Hashable, ItemIdentifier : Sendable {
         }
         super.init()
     }
-    
-//    public init<ItemView>()
-    
+
     public override func render(_ listView: ZHListView, _ indexPath: IndexPath, _ itemIdentifier: any Hashable) -> UICollectionViewCell? {
         return _render(listView, indexPath, itemIdentifier)
     }
@@ -74,15 +72,15 @@ public class LKCompositionalWaterfallItem<ItemIdentifier>: LKCompositionalItem  
 ItemIdentifier : Hashable, ItemIdentifier : Sendable {
     public typealias ItemRatioProvider = (_ item: ItemIdentifier) -> CGFloat
     
-    public let itemRatio: LKCompositionalWaterfallItem<ItemIdentifier>.ItemRatioProvider
+    public let ratio: LKCompositionalWaterfallItem<ItemIdentifier>.ItemRatioProvider
     
     private let _render: (_ listView: ZHListView, _ indexPath: IndexPath, _ itemIdentifier: any Hashable) -> UICollectionViewCell?
     
     public init<ItemView>(
-        itemRatio: @escaping (_ item: ItemIdentifier) -> CGFloat,
+        ratio: @escaping (_ item: ItemIdentifier) -> CGFloat,
         render: @escaping (_ cell: ItemView, _ indexPath: IndexPath, _ itemIdentifier: ItemIdentifier) -> Void
     ) where ItemView: ZHListCellView {
-        self.itemRatio = itemRatio
+        self.ratio = ratio
         let registration = UICollectionView.CellRegistration<ItemView, ItemIdentifier> { (itemView, indexPath, item) in
             render(itemView, indexPath, item)
         }

@@ -82,7 +82,7 @@ class LKFlatListCompositionalWaterfallLayoutPlayground: UIViewController {
                 crossAxisSpacing: 15,
                 mainAxisSpacing: 10,
                 item: LKCompositionalWaterfallItem<Item>(
-                    itemRatio: { item in
+                    ratio: { item in
                         return item.ratio
                     },
                     render:{ (cell: CustomCell, indexPath, item) in

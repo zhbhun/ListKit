@@ -161,7 +161,7 @@ ItemIdentifier : Hashable, ItemIdentifier : Sendable {
                         let columnIndex = columnHeights.enumerated().min(by: { $0.element < $1.element })?.offset ?? 0
                         let xOffset = CGFloat(columnIndex) * (itemWidth + crossAxisSpacing)
                         let itemIdentifier = dataSource.itemIdentifier(for: i)
-                        let itemHeight = itemIdentifier == nil ? 0 : itemWidth / item.itemRatio(itemIdentifier!)
+                        let itemHeight = itemIdentifier == nil ? 0 : itemWidth / item.ratio(itemIdentifier!)
                         let yOffset = columnHeights[columnIndex]
                         let frame = CGRect(x: xOffset, y: yOffset, width: itemWidth, height: itemHeight)
                         layoutAttributes.append(NSCollectionLayoutGroupCustomItem(frame: frame))
