@@ -10,93 +10,143 @@ import UIKit
 
 public class LKCompositionalItem {
     public var didSelectAt: ZHListItemDidSelectHandler?
-    
-    public init(
-        kind: String = "",
-        didSelectAt: ZHListItemDidSelectHandler? = nil
-    ) {
-        self.didSelectAt = didSelectAt
+
+    public typealias Render = (
+        _ listView: ZHListView, _ indexPath: IndexPath, _ itemIdentifier: any Hashable
+    ) -> UICollectionViewCell?
+
+    private let _render: Render
+
+    public init(_ render: @escaping Render) {
+        _render = render
     }
-    
-    public func render(_ listView: ZHListView, _ indexPath: IndexPath, _ itemIdentifier: any Hashable) -> UICollectionViewCell? {
-        fatalError("Subclasses must override `render`.")
+
+    public init<ItemView, ItemIdentifier>(
+        _ render: @escaping (
+            _ cell: ItemView, _ indexPath: IndexPath, _ itemIdentifier: ItemIdentifier
+        ) -> Void
+    ) where ItemView: ZHListCellView, ItemIdentifier: Hashable, ItemIdentifier: Sendable {
+        let registration = UICollectionView.CellRegistration<ItemView, ItemIdentifier> {
+            (itemView, indexPath, item) in
+            render(itemView, indexPath, item)
+        }
+        _render = {
+            (
+                _ listView: ZHListView,
+                _ indexPath: IndexPath,
+                _ itemIdentifier: any Hashable
+            ) -> UICollectionViewCell? in
+            guard let itemIdentifier = itemIdentifier as? ItemIdentifier else { return nil }
+            return listView.dequeueConfiguredReusableCell(
+                using: registration, for: indexPath, item: itemIdentifier)
+        }
     }
-    
+
+    public func render(
+        _ listView: ZHListView, _ indexPath: IndexPath, _ itemIdentifier: any Hashable
+    ) -> UICollectionViewCell? {
+        return _render(listView, indexPath, itemIdentifier)
+    }
+
     public func onDidSelectAt(_ handler: ZHListItemDidSelectHandler?) -> Self {
         didSelectAt = handler
         return self
     }
 }
 
-public class LKCompositionalFlowItem<ItemIdentifier>: LKCompositionalItem where
-ItemIdentifier : Hashable, ItemIdentifier : Sendable {
+public class LKCompositionalFlowItem<ItemIdentifier>: LKCompositionalItem
+where
+    ItemIdentifier: Hashable, ItemIdentifier: Sendable
+{
     public let size: LKDimension
-    public let contentInsets: NSDirectionalEdgeInsets
+    public let insets: NSDirectionalEdgeInsets
 
-    private let _render: (_ listView: ZHListView, _ indexPath: IndexPath, _ itemIdentifier: any Hashable) -> UICollectionViewCell?
-    
     public init<ItemView>(
         size: LKDimension,
-        contentInsets: NSDirectionalEdgeInsets = .zero,
-        render: @escaping (_ cell: ItemView, _ indexPath: IndexPath, _ itemIdentifier: ItemIdentifier) -> Void
+        insets: NSDirectionalEdgeInsets = .zero,
+        render: @escaping (
+            _ cell: ItemView, _ indexPath: IndexPath, _ itemIdentifier: ItemIdentifier
+        ) -> Void
     ) where ItemView: ZHListCellView {
         self.size = size
-        self.contentInsets = contentInsets
-        let registration = UICollectionView.CellRegistration<ItemView, ItemIdentifier> { (itemView, indexPath, item) in
+        self.insets = insets
+        let registration = UICollectionView.CellRegistration<ItemView, ItemIdentifier> {
+            (itemView, indexPath, item) in
             render(itemView, indexPath, item)
         }
-        self._render = { (
-            _ listView: ZHListView,
-            _ indexPath: IndexPath,
-            _ itemIdentifier: any Hashable
-        ) -> UICollectionViewCell? in
+        super.init {
+            (
+                _ listView: ZHListView,
+                _ indexPath: IndexPath,
+                _ itemIdentifier: any Hashable
+            ) -> UICollectionViewCell? in
             guard let itemIdentifier = itemIdentifier as? ItemIdentifier else { return nil }
-            return listView.dequeueConfiguredReusableCell(using: registration, for: indexPath, item: itemIdentifier)
+            return listView.dequeueConfiguredReusableCell(
+                using: registration,
+                for: indexPath,
+                item: itemIdentifier
+            )
         }
-        super.init()
     }
 
-    public override func render(_ listView: ZHListView, _ indexPath: IndexPath, _ itemIdentifier: any Hashable) -> UICollectionViewCell? {
-        return _render(listView, indexPath, itemIdentifier)
+    public init(
+        size: LKDimension,
+        insets: NSDirectionalEdgeInsets = .zero,
+        resolve: @escaping (_ index: Int) -> String,
+        items: [String: LKCompositionalItem]
+    ) {
+        self.size = size
+        self.insets = insets
+        super.init {
+            (
+                _ listView: ZHListView,
+                _ indexPath: IndexPath,
+                _ itemIdentifier: any Hashable
+            ) -> UICollectionViewCell? in
+            guard let itemIdentifier = itemIdentifier as? ItemIdentifier else { return nil }
+            let key = resolve(indexPath.item)
+            guard let item = items[key] else {
+                return nil
+            }
+            return item.render(listView, indexPath, itemIdentifier)
+        }
     }
-    
-    public func resolve() -> NSCollectionLayoutItem {
+
+    public func layout() -> [NSCollectionLayoutItem] {
         let item = NSCollectionLayoutItem(layoutSize: size)
-        item.contentInsets = contentInsets
-        return item
+        item.contentInsets = insets
+        return [item]
     }
 }
 
-
-public class LKCompositionalWaterfallItem<ItemIdentifier>: LKCompositionalItem  where
-ItemIdentifier : Hashable, ItemIdentifier : Sendable {
+public class LKCompositionalWaterfallItem<ItemIdentifier>: LKCompositionalItem
+where
+    ItemIdentifier: Hashable, ItemIdentifier: Sendable
+{
     public typealias ItemRatioProvider = (_ item: ItemIdentifier) -> CGFloat
-    
+
     public let ratio: LKCompositionalWaterfallItem<ItemIdentifier>.ItemRatioProvider
-    
-    private let _render: (_ listView: ZHListView, _ indexPath: IndexPath, _ itemIdentifier: any Hashable) -> UICollectionViewCell?
-    
+
     public init<ItemView>(
         ratio: @escaping (_ item: ItemIdentifier) -> CGFloat,
-        render: @escaping (_ cell: ItemView, _ indexPath: IndexPath, _ itemIdentifier: ItemIdentifier) -> Void
+        render: @escaping (
+            _ cell: ItemView, _ indexPath: IndexPath, _ itemIdentifier: ItemIdentifier
+        ) -> Void
     ) where ItemView: ZHListCellView {
         self.ratio = ratio
-        let registration = UICollectionView.CellRegistration<ItemView, ItemIdentifier> { (itemView, indexPath, item) in
+        let registration = UICollectionView.CellRegistration<ItemView, ItemIdentifier> {
+            (itemView, indexPath, item) in
             render(itemView, indexPath, item)
         }
-        self._render =  { (
-            _ listView: ZHListView,
-            _ indexPath: IndexPath,
-            _ itemIdentifier: any Hashable
-        ) -> UICollectionViewCell? in
+        super.init {
+            (
+                _ listView: ZHListView,
+                _ indexPath: IndexPath,
+                _ itemIdentifier: any Hashable
+            ) -> UICollectionViewCell? in
             guard let itemIdentifier = itemIdentifier as? ItemIdentifier else { return .init() }
-            return listView.dequeueConfiguredReusableCell(using: registration, for: indexPath, item: itemIdentifier)
+            return listView.dequeueConfiguredReusableCell(
+                using: registration, for: indexPath, item: itemIdentifier)
         }
-        super.init()
     }
-    
-    public override func render(_ listView: ZHListView, _ indexPath: IndexPath, _ itemIdentifier: any Hashable) -> UICollectionViewCell? {
-        return _render(listView, indexPath, itemIdentifier)
-    }
-
 }
