@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  ListKit
 //
-//  Created by zhbhun on 11/25/2024.
+//  Created by zhbhun on 11/21/2024.
 //  Copyright (c) 2024 zhbhun. All rights reserved.
 //
 
@@ -14,7 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = UINavigationController(rootViewController: ViewController())
+        window?.makeKeyAndVisible()
         // Override point for customization after application launch.
         return true
     }

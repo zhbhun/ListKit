@@ -1,0 +1,22 @@
+{
+  "name": "ListKit",
+  "version": "0.1.0",
+  "summary": "A short description of ListKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/zhbhun/ListKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhbhun": "zhbhun@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/zhbhun/ListKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "ListKit/Classes/**/*"
+}
