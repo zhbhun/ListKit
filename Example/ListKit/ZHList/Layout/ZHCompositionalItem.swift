@@ -58,11 +58,11 @@ public class ZHCompositionalFlowItem<ItemIdentifier>: ZHCompositionalItem
 where
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
 {
-    public let size: LKDimension
+    public let size: ZHDimension
     public let insets: NSDirectionalEdgeInsets
 
     public init<ItemView>(
-        size: LKDimension,
+        size: ZHDimension,
         insets: NSDirectionalEdgeInsets = .zero,
         render: @escaping (
             _ cell: ItemView, _ indexPath: IndexPath, _ itemIdentifier: ItemIdentifier
@@ -90,7 +90,7 @@ where
     }
 
     public init(
-        size: LKDimension,
+        size: ZHDimension,
         insets: NSDirectionalEdgeInsets = .zero,
         resolve: @escaping (_ index: Int) -> String,
         items: [String: ZHCompositionalItem]

@@ -60,7 +60,7 @@ class LKFlatListCompositionalWaterfallLayoutPlayground: UIViewController {
                 insets: NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15),
                 header: ZHCompositionalBoundarySupplementary(
                     kind: UICollectionView.elementKindSectionHeader,
-                    size: LKDimension(
+                    size: ZHDimension(
                         widthDimension: .fractionalWidth(1),
                         heightDimension: .absolute(50)
                     ),
@@ -70,7 +70,7 @@ class LKFlatListCompositionalWaterfallLayoutPlayground: UIViewController {
                 ),
                 footer: ZHCompositionalBoundarySupplementary(
                     kind: UICollectionView.elementKindSectionFooter,
-                    size: LKDimension(
+                    size: ZHDimension(
                         widthDimension: .fractionalWidth(1),
                         heightDimension: .absolute(50)
                     ),

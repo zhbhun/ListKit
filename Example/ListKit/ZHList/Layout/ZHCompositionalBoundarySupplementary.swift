@@ -30,7 +30,7 @@ public class ZHCompositionalSupplementary  {
 
 public class ZHCompositionalBoundarySupplementary: ZHCompositionalSupplementary  {
     
-    public let size: LKDimension
+    public let size: ZHDimension
     public let contentInsets: NSDirectionalEdgeInsets?
     public let zIndex: Int?
     public let offset: CGPoint?
@@ -38,7 +38,7 @@ public class ZHCompositionalBoundarySupplementary: ZHCompositionalSupplementary 
     
     public init<SupplementaryView>(
         kind: String,
-        size: LKDimension,
+        size: ZHDimension,
         contentInsets: NSDirectionalEdgeInsets? = .zero,
         zIndex: Int? = nil,
         offset: CGPoint? = nil,

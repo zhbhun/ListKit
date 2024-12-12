@@ -57,7 +57,7 @@ class ZHFlatListCompositionalPlayground: UIViewController {
             insets: NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20),
             header: ZHCompositionalBoundarySupplementary(
                 kind: UICollectionView.elementKindSectionHeader,
-                size: LKDimension(
+                size: ZHDimension(
                     widthDimension: .fractionalWidth(1),
                     heightDimension: .absolute(50)
                 ),
@@ -67,7 +67,7 @@ class ZHFlatListCompositionalPlayground: UIViewController {
             ),
             footer: ZHCompositionalBoundarySupplementary(
                 kind: UICollectionView.elementKindSectionFooter,
-                size: LKDimension(
+                size: ZHDimension(
                     widthDimension: .fractionalWidth(1),
                     heightDimension: .absolute(50)
                 ),
@@ -75,13 +75,13 @@ class ZHFlatListCompositionalPlayground: UIViewController {
                     supplementary.label.text = "Footer"
                 }
             ),
-            groupSize: LKDimension(
+            groupSize: ZHDimension(
                 widthDimension: .fractionalWidth(1),
                 heightDimension: .estimated(100)
             ),
             groupSpacing: 10,
             groupItem: ZHCompositionalFlowItem<Item>(
-                size: LKDimension(
+                size: ZHDimension(
                     widthDimension: .fractionalWidth(1),
                     heightDimension: .estimated(100)
                 ),

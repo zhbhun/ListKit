@@ -29,7 +29,7 @@ where
         insets: NSDirectionalEdgeInsets = .zero,
         header: ZHCompositionalBoundarySupplementary? = nil,
         footer: ZHCompositionalBoundarySupplementary? = nil,
-        groupSize: LKDimension,
+        groupSize: ZHDimension,
         groupSpacing: CGFloat = 0,
         groupGap: NSCollectionLayoutSpacing? = nil,
         groupInset: NSDirectionalEdgeInsets = .zero,

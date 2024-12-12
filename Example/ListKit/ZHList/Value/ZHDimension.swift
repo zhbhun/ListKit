@@ -7,4 +7,4 @@
 //
 import UIKit
 
-public typealias LKDimension = NSCollectionLayoutSize
+public typealias ZHDimension = NSCollectionLayoutSize
