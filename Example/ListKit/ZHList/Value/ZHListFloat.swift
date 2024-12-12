@@ -8,7 +8,7 @@
 import UIKit
 
 public struct ZHListFloat {
-    public typealias Handler = (_ listView: ZHListView, _ listLayout: LKListLayout, _ indexPath: IndexPath) -> CGFloat
+    public typealias Handler = (_ listView: ZHListView, _ listLayout: ZHListLayout, _ indexPath: IndexPath) -> CGFloat
     
     public let fixed: CGFloat?
     public let handler: Handler?
@@ -23,7 +23,7 @@ public struct ZHListFloat {
         self.handler = handler
     }
     
-    public func resolve(_ listView: ZHListView, _ listLayout: LKListLayout, _ indexPath: IndexPath) -> CGFloat {
+    public func resolve(_ listView: ZHListView, _ listLayout: ZHListLayout, _ indexPath: IndexPath) -> CGFloat {
         if let handler = handler {
             return handler(listView, listLayout, indexPath)
         }

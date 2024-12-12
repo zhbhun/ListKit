@@ -10,7 +10,7 @@ import UIKit
 public struct ZHListEdgeInsets {
     public typealias Value = (top: CGFloat, leading: CGFloat, bottom: CGFloat, trailing: CGFloat)
     
-    public typealias Handler = (_ listView: ZHListView, _ listLayout: LKListLayout, _ indexPath: IndexPath) -> Value
+    public typealias Handler = (_ listView: ZHListView, _ listLayout: ZHListLayout, _ indexPath: IndexPath) -> Value
     
     public let fixed: Value?
     public let handler: Handler?
@@ -25,7 +25,7 @@ public struct ZHListEdgeInsets {
         self.handler = handler
     }
     
-    public func resolve(_ listView: ZHListView, _ listLayout: LKListLayout, _ indexPath: IndexPath) -> UIEdgeInsets {
+    public func resolve(_ listView: ZHListView, _ listLayout: ZHListLayout, _ indexPath: IndexPath) -> UIEdgeInsets {
         var value: Value? = nil
         if let handler = handler {
             value = handler(listView, listLayout, indexPath)
@@ -37,7 +37,7 @@ public struct ZHListEdgeInsets {
     }
     
     
-    public func resolve(_ listView: ZHListView, _ listLayout: LKListLayout, _ indexPath: IndexPath) -> NSDirectionalEdgeInsets {
+    public func resolve(_ listView: ZHListView, _ listLayout: ZHListLayout, _ indexPath: IndexPath) -> NSDirectionalEdgeInsets {
         var value: Value? = nil
         if let handler = handler {
             value = handler(listView, listLayout, indexPath)

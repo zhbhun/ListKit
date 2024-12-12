@@ -7,11 +7,11 @@
 //
 import UIKit
 
-public class LKCompositionalSupplementary  {
+public class ZHCompositionalSupplementary  {
     public typealias Render = (_ listView: ZHListView, _ indexPath: IndexPath) -> ZHListReusableView?
     
     public let kind: String
-    public let render: LKFlowSupplementary.Render
+    public let render: ZHCompositionalSupplementary.Render
     
     public init<SupplementaryView>(
         kind: String,
@@ -21,14 +21,14 @@ public class LKCompositionalSupplementary  {
         let registration = UICollectionView.SupplementaryRegistration<SupplementaryView>(elementKind: kind) { (supplementary, elementKind, indexPath) in
             render(supplementary, indexPath)
         }
-        self.render =  { (_ listView: ZHListView, _ indexPath: IndexPath) -> ZHListReusableView? in
+        self.render = { (_ listView: ZHListView, _ indexPath: IndexPath) -> ZHListReusableView? in
             return listView.dequeueConfiguredReusableSupplementary(using: registration, for: indexPath)
         }
     }
 }
 
 
-public class LKCompositionalBoundarySupplementary: LKCompositionalSupplementary  {
+public class ZHCompositionalBoundarySupplementary: ZHCompositionalSupplementary  {
     
     public let size: LKDimension
     public let contentInsets: NSDirectionalEdgeInsets?

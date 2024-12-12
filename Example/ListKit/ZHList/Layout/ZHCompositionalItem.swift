@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class LKCompositionalItem {
+public class ZHCompositionalItem {
     public var didSelectAt: ZHListItemDidSelectHandler?
 
     public typealias Render = (
@@ -54,7 +54,7 @@ public class LKCompositionalItem {
     }
 }
 
-public class LKCompositionalFlowItem<ItemIdentifier>: LKCompositionalItem
+public class ZHCompositionalFlowItem<ItemIdentifier>: ZHCompositionalItem
 where
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
 {
@@ -93,7 +93,7 @@ where
         size: LKDimension,
         insets: NSDirectionalEdgeInsets = .zero,
         resolve: @escaping (_ index: Int) -> String,
-        items: [String: LKCompositionalItem]
+        items: [String: ZHCompositionalItem]
     ) {
         self.size = size
         self.insets = insets
@@ -119,7 +119,7 @@ where
     }
 }
 
-public class LKCompositionalWaterfallItem<ItemIdentifier>: LKCompositionalItem
+public class LKCompositionalWaterfallItem<ItemIdentifier>: ZHCompositionalItem
 where
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
 {

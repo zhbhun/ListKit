@@ -55,10 +55,10 @@ class LKFlatListCompositionalWaterfallLayoutPlayground: UIViewController {
         listView = ZHFlatListView(
             frame: view.frame,
             dataSource: dataSource,
-            layout: LKCompositionalLayout.waterfall(
+            layout: ZHCompositionalLayout.waterfall(
                 dataSource: dataSource,
                 insets: NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15),
-                header: LKCompositionalBoundarySupplementary(
+                header: ZHCompositionalBoundarySupplementary(
                     kind: UICollectionView.elementKindSectionHeader,
                     size: LKDimension(
                         widthDimension: .fractionalWidth(1),
@@ -68,7 +68,7 @@ class LKFlatListCompositionalWaterfallLayoutPlayground: UIViewController {
                         supplementary.label.text = "Header"
                     }
                 ),
-                footer: LKCompositionalBoundarySupplementary(
+                footer: ZHCompositionalBoundarySupplementary(
                     kind: UICollectionView.elementKindSectionFooter,
                     size: LKDimension(
                         widthDimension: .fractionalWidth(1),

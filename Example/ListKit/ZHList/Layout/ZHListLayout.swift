@@ -7,7 +7,7 @@
 //
 import UIKit
 
-open class LKListLayout {
+open class ZHListLayout {
     public let collectionViewLayout: UICollectionViewLayout
     
     init(_ layout: UICollectionViewLayout) {

@@ -7,12 +7,16 @@
 //
 import UIKit
 
-public struct LKFlowItem<ItemIdentifier> where
+public struct ZHFlowItem<ItemIdentifier> where
 ItemIdentifier : Hashable, ItemIdentifier : Sendable {
-    public typealias Render = (_ listView: ZHListView, _ indexPath: IndexPath, _ itemIdentifier: ItemIdentifier) -> UICollectionViewCell?
+    public typealias Render = (
+        _ listView: UICollectionView,
+        _ indexPath: IndexPath,
+        _ itemIdentifier: ItemIdentifier
+    ) -> UICollectionViewCell?
     
     public let size: ZHListSize?
-    public let render: LKFlowItem<ItemIdentifier>.Render
+    public let render: ZHFlowItem<ItemIdentifier>.Render
     public let didSelectAt: ZHListItemDidSelectHandler?
 
     /// 初始化一个 `ZHFlatListItem` 实例，用于定义列表项的尺寸、渲染逻辑和选中回调。
@@ -55,7 +59,7 @@ ItemIdentifier : Hashable, ItemIdentifier : Sendable {
             render(itemView, indexPath, item)
         }
         self.render = { (
-            _ listView: ZHListView,
+            _ listView: UICollectionView,
             _ indexPath: IndexPath,
             _ itemIdentifier: ItemIdentifier
         ) -> UICollectionViewCell? in

@@ -53,9 +53,9 @@ class ZHFlatListCompositionalPlayground: UIViewController {
             )])
         }
         dataSource.apply(snapshot, mode: .reload)
-        let layout = LKCompositionalLayout<Item>.flow(
+        let layout = ZHCompositionalLayout<Item>.flow(
             insets: NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20),
-            header: LKCompositionalBoundarySupplementary(
+            header: ZHCompositionalBoundarySupplementary(
                 kind: UICollectionView.elementKindSectionHeader,
                 size: LKDimension(
                     widthDimension: .fractionalWidth(1),
@@ -65,7 +65,7 @@ class ZHFlatListCompositionalPlayground: UIViewController {
                     supplementary.label.text = "Header"
                 }
             ),
-            footer: LKCompositionalBoundarySupplementary(
+            footer: ZHCompositionalBoundarySupplementary(
                 kind: UICollectionView.elementKindSectionFooter,
                 size: LKDimension(
                     widthDimension: .fractionalWidth(1),
@@ -80,7 +80,7 @@ class ZHFlatListCompositionalPlayground: UIViewController {
                 heightDimension: .estimated(100)
             ),
             groupSpacing: 10,
-            groupItem: LKCompositionalFlowItem<Item>(
+            groupItem: ZHCompositionalFlowItem<Item>(
                 size: LKDimension(
                     widthDimension: .fractionalWidth(1),
                     heightDimension: .estimated(100)

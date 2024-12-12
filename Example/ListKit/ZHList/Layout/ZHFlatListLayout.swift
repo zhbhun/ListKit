@@ -7,7 +7,7 @@
 //
 import UIKit
 
-open class LKFlatListLayout<ItemIdentifierType> where
+open class ZHFlatListLayout<ItemIdentifierType> where
 ItemIdentifierType : Hashable, ItemIdentifierType : Sendable {
     open var hasSupplementary: Bool {
         fatalError("Subclasses must override `hasSupplementary`.")

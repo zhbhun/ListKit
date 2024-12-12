@@ -11,9 +11,9 @@ import UIKit
 open class ZHListView: UICollectionView {
     public let listDataSource: ZHListDataSource
 
-    public let listLayout: LKListLayout
+    public let listLayout: ZHListLayout
     
-    public init(frame: CGRect, dataSource: ZHListDataSource, layout: LKListLayout) {
+    public init(frame: CGRect, dataSource: ZHListDataSource, layout: ZHListLayout) {
         self.listDataSource = dataSource
         self.listLayout = layout
         super.init(frame: frame, collectionViewLayout: layout.collectionViewLayout)

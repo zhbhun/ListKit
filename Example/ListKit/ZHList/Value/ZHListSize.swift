@@ -8,7 +8,7 @@
 import UIKit
 
 public struct ZHListSize {
-    public typealias Handler = (_ listView: ZHListView, _ listLayout: LKListLayout, _ indexPath: IndexPath) -> CGSize
+    public typealias Handler = (_ listView: ZHListView, _ listLayout: ZHListLayout, _ indexPath: IndexPath) -> CGSize
     
     public let fixed: CGSize?
     public let handler: Handler?
@@ -23,7 +23,7 @@ public struct ZHListSize {
         self.handler = handler
     }
     
-    public func resolve(_ listView: ZHListView, _ listLayout: LKListLayout, _ indexPath: IndexPath) -> CGSize {
+    public func resolve(_ listView: ZHListView, _ listLayout: ZHListLayout, _ indexPath: IndexPath) -> CGSize {
         if let handler = handler {
             return handler(listView, listLayout, indexPath)
         }

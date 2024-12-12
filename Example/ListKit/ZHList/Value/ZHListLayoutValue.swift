@@ -10,6 +10,6 @@ import UIKit
 public protocol ZHListLayoutValue {
     associatedtype DataType
     
-    func getListLayoutValue(_ listView: ZHListView, _ listLayout: LKListLayout, _ indexPath: IndexPath) -> DataType
+    func getListLayoutValue(_ listView: ZHListView, _ listLayout: ZHListLayout, _ indexPath: IndexPath) -> DataType
 }
 
