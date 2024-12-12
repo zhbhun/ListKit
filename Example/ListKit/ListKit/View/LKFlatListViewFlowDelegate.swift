@@ -7,8 +7,10 @@
 //
 import UIKit
 
-public class LKFlatListViewFlowDelegate<ItemIdentifier>: NSObject,
-    UICollectionViewDelegateFlowLayout
+public class LKFlatListViewFlowDelegate<ItemIdentifier>: LKListViewDelegate<
+    Int, ItemIdentifier
+>,
+UICollectionViewDelegateFlowLayout
 where
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
 {
@@ -21,6 +23,7 @@ where
     public let item: LKListFlowItem<ItemIdentifier>
 
     init(
+        listView: LKFlatListView<ItemIdentifier>,
         dataSource: LKFlatListDataSource<ItemIdentifier>,
         inset: LKListEdgeInsets? = nil,
         mainAxisSpacing: LKListFloat? = nil,
@@ -36,8 +39,20 @@ where
         self.header = header
         self.footer = footer
         self.item = item
+        super.init()
+        self.listView = listView
     }
 
+    // MARK: LKListViewDelegate
+    public override func getItemIdentifier(_ indexPath: IndexPath) -> ItemIdentifier? {
+        return dataSource.itemIdentifier(for: indexPath.item)
+    }
+
+    public override func getSectionIdentifier(_ index: Int) -> Int? {
+        return 0
+    }
+
+    // MARK: UICollectionViewDelegateFlowLayout
     public func collectionView(
         _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath

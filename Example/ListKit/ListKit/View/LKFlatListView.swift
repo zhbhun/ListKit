@@ -8,11 +8,14 @@
 
 import UIKit
 
-public class LKFlatListView<ItemIdentifier>: LKListView
+public class LKFlatListView<ItemIdentifier>: LKListBaseView<Int, ItemIdentifier>
 where
 
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
 {
+    public typealias SectionIdentifierType = Int
+    public typealias ItemIdentifierType = ItemIdentifier
+
     private var diffableDataSource: UICollectionViewDataSource!
     private var listDelegate: LKFlatListViewFlowDelegate<ItemIdentifier>!
 
@@ -61,6 +64,7 @@ where
         initDataSource(dataSource: dataSource, header: header, footer: footer, item: item)
 
         let delegate = LKFlatListViewFlowDelegate(
+            listView: self,
             dataSource: dataSource,
             inset: inset,
             mainAxisSpacing: mainAxisSpacing,

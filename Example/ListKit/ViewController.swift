@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     }
 
     var dataSource: LKFlatListDataSource<Item>! = nil
-    var listView: LKFlatListView! = nil
+    var listView: LKFlatListView<Item>! = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         ])
         dataSource.apply(snapshot, mode: .reload)
 
-        listView = LKFlatListView.flow(
+        listView = .flow(
             frame: view.frame,
             dataSource: dataSource,
             inset: .fixed(top: 0, leading: 20, bottom: 0, trailing: 20),
@@ -86,20 +86,16 @@ class ViewController: UIViewController {
             ),
             item: LKListFlowItem<Item>(
                 size: .fixed(width: UIScreen.main.bounds.width / 1 - 40, height: 50),
-                didSelectAt: { [weak self] listView, indexPath in
-                    guard let self = self,
-                        let item = self.dataSource.snapshot().itemIdentifier(indexPath)
-                    else { return }
-                    self.navigationController?.pushViewController(
-                        item.factory(), animated: true)
-                },
                 render: { (cell: UICollectionViewListCell, indexPath, item) in
                     var content = cell.defaultContentConfiguration()
                     content.text = item.title
                     cell.contentConfiguration = content
                 }
             )
-        )
+        ).onDidSelectItemAt { colllectionView, indexPath, itemIdentifier in
+            print(indexPath)
+            print(itemIdentifier.title)
+        }
         view.addSubview(listView)
     }
 }

@@ -53,7 +53,7 @@ where
         render: @escaping (
             _ cell: ItemView, _ indexPath: IndexPath, _ itemIdentifier: ItemIdentifier
         ) -> Void
-    ) where ItemView: ZHListCellView {
+    ) where ItemView: LKListItemView {
         self.size = size
         let registration = UICollectionView.CellRegistration<ItemView, ItemIdentifier> {
             (itemView, indexPath, item) in

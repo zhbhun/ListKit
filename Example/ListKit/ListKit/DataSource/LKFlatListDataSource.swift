@@ -57,6 +57,9 @@ where
     ///
     /// This method is a constant time operation, O(1), which means you can look up an item identifier from its corresponding index path with no significant overhead.
     open func itemIdentifier(for index: Int) -> ItemIdentifierType? {
+        guard index >= 0, index < current.itemIdentifiers.count else {
+            return nil
+        }
         return current.itemIdentifiers[index]
     }
 
