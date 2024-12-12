@@ -1,8 +1,8 @@
 //
-//  ZHListDataSourceApplyMode.swift
-//  ZHListKit
+//  LKListApplyMode.swift
+//  ListKit
 //
-//  Created by zhanghuabin on 2024/11/15.
+//  Created by zhbhun on 2024/11/15.
 //  Copyright © 2024 CocoaPods. All rights reserved.
 //
 

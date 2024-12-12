@@ -2,7 +2,7 @@
 //  LKResolver.swift
 //  ListKit
 //
-//  Created by zhanghuabin on 2024/12/12.
+//  Created by zhbhun on 2024/12/12.
 //  Copyright © 2024 CocoaPods. All rights reserved.
 //
 
