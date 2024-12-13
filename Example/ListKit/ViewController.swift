@@ -8,21 +8,6 @@
 
 import UIKit
 
-//class ViewController: UIViewController {
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        // Do any additional setup after loading the view, typically from a nib.
-//    }
-//
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
-//
-//}
-//
-
 class ViewController: UIViewController {
     class Item: Hashable {
         let id: UUID
@@ -55,6 +40,11 @@ class ViewController: UIViewController {
         dataSource = LKFlatListDataSource<Item>()
         var snapshot = dataSource.snapshot()
         snapshot.appendItems([
+            Item(
+                id: UUID(),
+                title: "LKFlatListCompositionalPlayground",
+                factory: { LKFlatListCompositionalPlayground() }
+            ),
             Item(
                 id: UUID(),
                 title: "ZHFlatListCompositionalLayout",
@@ -92,15 +82,15 @@ class ViewController: UIViewController {
                     cell.contentConfiguration = content
                 }
             )
-        ).onDidSelectItemAt { colllectionView, indexPath, itemIdentifier in
-            print(indexPath)
-            print(itemIdentifier.title)
+        ).onDidSelectItemAt { [weak self] listView, indexPath, itemIdentifier in
+            guard let self = self else { return }
+            self.navigationController?.pushViewController(itemIdentifier.factory(), animated: true)
         }
         view.addSubview(listView)
     }
 }
 
-fileprivate class CustomSupplementary: UICollectionReusableView {
+private class CustomSupplementary: UICollectionReusableView {
     let label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center

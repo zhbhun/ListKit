@@ -8,14 +8,8 @@
 
 import UIKit
 
-public class LKListFlowSupplementary {
-    public typealias Render = (
-        _ listView: UICollectionView,
-        _ indexPath: IndexPath
-    ) -> LKListReusableView?
-
+public class LKListFlowSupplementary: LKListSupplementary {
     public let size: LKListSize
-    public let render: LKListFlowSupplementary.Render
 
     public init<SupplementaryView>(
         kind: String,
@@ -28,11 +22,11 @@ public class LKListFlowSupplementary {
         ) { (supplementaryView, elementKind, indexPath) in
             render(supplementaryView, indexPath)
         }
-        self.render = {
+        super.init({
             (_ listView: UICollectionView, _ indexPath: IndexPath) -> LKListReusableView? in
             return listView.dequeueConfiguredReusableSupplementary(
                 using: registration, for: indexPath)
-        }
+        })
     }
 }
 
@@ -61,4 +55,3 @@ public class LKListFlowFooter: LKListFlowSupplementary {
         )
     }
 }
-

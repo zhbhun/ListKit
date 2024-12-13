@@ -7,14 +7,13 @@
 //
 import UIKit
 
-public class LKFlatListViewFlowDelegate<ItemIdentifier>: LKListViewDelegate<
-    Int, ItemIdentifier
+public class LKFlatListViewFlowDelegate<ItemIdentifier>: LKFlatListViewDelegate<
+    ItemIdentifier
 >,
 UICollectionViewDelegateFlowLayout
 where
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
 {
-    public weak var dataSource: LKFlatListDataSource<ItemIdentifier>!
     public let inset: LKListEdgeInsets?
     public let mainAxisSpacing: LKListFloat?
     public let crossAxisSpacing: LKListFloat?
@@ -23,7 +22,6 @@ where
     public let item: LKListFlowItem<ItemIdentifier>
 
     init(
-        listView: LKFlatListView<ItemIdentifier>,
         dataSource: LKFlatListDataSource<ItemIdentifier>,
         inset: LKListEdgeInsets? = nil,
         mainAxisSpacing: LKListFloat? = nil,
@@ -32,15 +30,13 @@ where
         footer: LKListFlowSupplementary? = nil,
         item: LKListFlowItem<ItemIdentifier>
     ) {
-        self.dataSource = dataSource
         self.inset = inset
         self.mainAxisSpacing = mainAxisSpacing
         self.crossAxisSpacing = crossAxisSpacing
         self.header = header
         self.footer = footer
         self.item = item
-        super.init()
-        self.listView = listView
+        super.init(dataSource: dataSource)
     }
 
     // MARK: LKListViewDelegate

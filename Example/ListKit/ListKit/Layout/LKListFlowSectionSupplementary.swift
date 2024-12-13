@@ -8,18 +8,18 @@
 
 import UIKit
 
-public class LKListFlowSectionSupplementary<SectionIdentifier>
+public class LKListFlowSectionSupplementary<SectionIdentifier>: LKListSupplementary
 where
     SectionIdentifier: Hashable, SectionIdentifier: Sendable
 {
     public typealias Render = (
-        _ listView: UICollectionView,
+        _ listView: LKListView,
         _ indexPath: IndexPath,
         _ sectionIdentifier: SectionIdentifier
     ) -> LKListReusableView?
 
     public let size: LKListSize
-    public let render: LKListFlowSectionSupplementary<SectionIdentifier>.Render
+    private let _sectionRender: LKListFlowSectionSupplementary<SectionIdentifier>.Render
 
     public init<SupplementaryView>(
         kind: String,
@@ -38,9 +38,9 @@ where
             guard let sectionIdentifier = lastSectionIdentifier else { return }
             render(supplementaryView, indexPath, sectionIdentifier)
         }
-        self.render = {
+        self._sectionRender = {
             (
-                _ listView: UICollectionView,
+                _ listView: LKListView,
                 _ indexPath: IndexPath,
                 _ sectionIdentifier: SectionIdentifier
             ) -> LKListReusableView? in
@@ -50,6 +50,13 @@ where
                 for: indexPath
             )
         }
+        super.init()
+    }
+
+    public func render(
+        _ listView: LKListView, _ indexPath: IndexPath, _ sectionIdentifier: SectionIdentifier
+    ) -> LKListReusableView? {
+        return _sectionRender(listView, indexPath, sectionIdentifier)
     }
 }
 

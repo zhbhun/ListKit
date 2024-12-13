@@ -16,6 +16,22 @@ where
     private var diffableDataSource: UICollectionViewDataSource!
     private var listDelegate: LKSectionListViewFlowDelegate<SectionIdentifier, ItemIdentifier>!
 
+    public static func flow(
+        frame: CGRect,
+        dataSource: LKSectionListDataSource<SectionIdentifier, ItemIdentifier>,
+        scrollDirection: LKScrollDirection = LKScrollDirection.vertical,
+        resolve: @escaping (_ index: Int, _ section: SectionIdentifier) -> String,
+        sections: [String: LKListFlowSection<SectionIdentifier, ItemIdentifier>]
+    ) -> LKSectionListView<SectionIdentifier, ItemIdentifier> {
+        return LKSectionListView<SectionIdentifier, ItemIdentifier>(
+            frame: frame,
+            dataSource: dataSource,
+            scrollDirection: scrollDirection,
+            resolve: resolve,
+            sections: sections
+        )
+    }
+
     private init(
         frame: CGRect,
         dataSource: LKSectionListDataSource<SectionIdentifier, ItemIdentifier>,

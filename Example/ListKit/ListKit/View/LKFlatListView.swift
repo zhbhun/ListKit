@@ -13,75 +13,37 @@ where
 
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
 {
-    public typealias SectionIdentifierType = Int
-    public typealias ItemIdentifierType = ItemIdentifier
-
     private var diffableDataSource: UICollectionViewDataSource!
-    private var listDelegate: LKFlatListViewFlowDelegate<ItemIdentifier>!
+    private var listDelegate: LKListViewDelegate<Int, ItemIdentifier>!
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public static func flow(
+    public init(
         frame: CGRect,
+        layout: UICollectionViewLayout,
         dataSource: LKFlatListDataSource<ItemIdentifier>,
-        scrollDirection: LKScrollDirection = LKScrollDirection.vertical,
-        inset: LKListEdgeInsets? = nil,
-        mainAxisSpacing: LKListFloat? = nil,
-        crossAxisSpacing: LKListFloat? = nil,
-        header: LKListFlowHeader? = nil,
-        footer: LKListFlowFooter? = nil,
-        item: LKListFlowItem<ItemIdentifier>
-    ) -> LKFlatListView {
-        return LKFlatListView(
-            frame: frame, dataSource: dataSource,
-            scrollDirection: scrollDirection,
-            inset: inset,
-            mainAxisSpacing: mainAxisSpacing,
-            crossAxisSpacing: crossAxisSpacing,
-            header: header,
-            footer: footer,
-            item: item
-        )
-    }
-
-    private init(
-        frame: CGRect,
-        dataSource: LKFlatListDataSource<ItemIdentifier>,
-        scrollDirection: LKScrollDirection = LKScrollDirection.vertical,
-        inset: LKListEdgeInsets? = nil,
-        mainAxisSpacing: LKListFloat? = nil,
-        crossAxisSpacing: LKListFloat? = nil,
-        header: LKListFlowHeader? = nil,
-        footer: LKListFlowFooter? = nil,
-        item: LKListFlowItem<ItemIdentifier>
+        delegate: LKFlatListViewDelegate<ItemIdentifier>,
+        header: LKListSupplementary? = nil,
+        footer: LKListSupplementary? = nil,
+        item: LKListItem<ItemIdentifier>
     ) {
-        let collectionViewLayout = UICollectionViewFlowLayout()
-        collectionViewLayout.scrollDirection = scrollDirection
-        super.init(frame: frame, collectionViewLayout: collectionViewLayout)
-
-        initDataSource(dataSource: dataSource, header: header, footer: footer, item: item)
-
-        let delegate = LKFlatListViewFlowDelegate(
-            listView: self,
+        super.init(frame: frame, collectionViewLayout: layout)
+        self.bindDataSource(
             dataSource: dataSource,
-            inset: inset,
-            mainAxisSpacing: mainAxisSpacing,
-            crossAxisSpacing: crossAxisSpacing,
             header: header,
             footer: footer,
             item: item
         )
-        self.listDelegate = delegate
-        self.delegate = delegate
+        self.bindDelegate(delegate)
     }
 
-    private func initDataSource(
+    private func bindDataSource(
         dataSource: LKFlatListDataSource<ItemIdentifier>,
-        header: LKListFlowSupplementary? = nil,
-        footer: LKListFlowSupplementary? = nil,
-        item: LKListFlowItem<ItemIdentifier>
+        header: LKListSupplementary? = nil,
+        footer: LKListSupplementary? = nil,
+        item: LKListItem<ItemIdentifier>
     ) {
         let diffableDataSource = UICollectionViewDiffableDataSource<Int, ItemIdentifier>(
             collectionView: self
@@ -116,7 +78,106 @@ where
         diffableDataSource.applySnapshotUsingReloadData(
             dataSource.snapshot().diffableDataSourceSnapshot
         )
-        self.dataSource = diffableDataSource
         self.diffableDataSource = diffableDataSource
+    }
+
+    private func bindDelegate(_ delegate: LKFlatListViewDelegate<ItemIdentifier>) {
+        delegate.listView = self
+        self.listDelegate = delegate
+        self.delegate = delegate
+    }
+
+    public static func flow(
+        frame: CGRect,
+        dataSource: LKFlatListDataSource<ItemIdentifier>,
+        scrollDirection: LKScrollDirection = LKScrollDirection.vertical,
+        inset: LKListEdgeInsets? = nil,
+        mainAxisSpacing: LKListFloat? = nil,
+        crossAxisSpacing: LKListFloat? = nil,
+        header: LKListFlowHeader? = nil,
+        footer: LKListFlowFooter? = nil,
+        item: LKListFlowItem<ItemIdentifier>
+    ) -> LKFlatListView {
+        let collectionViewLayout = UICollectionViewFlowLayout()
+        collectionViewLayout.scrollDirection = scrollDirection
+        return LKFlatListView(
+            frame: frame,
+            layout: collectionViewLayout,
+            dataSource: dataSource,
+            delegate: LKFlatListViewFlowDelegate(
+                dataSource: dataSource,
+                inset: inset,
+                mainAxisSpacing: mainAxisSpacing,
+                crossAxisSpacing: crossAxisSpacing,
+                header: header,
+                footer: footer,
+                item: item
+            ),
+            header: header,
+            footer: footer,
+            item: item
+        )
+    }
+
+    public static func compositional(
+        frame: CGRect,
+        dataSource: LKFlatListDataSource<ItemIdentifier>,
+        scrollDirection: LKScrollDirection = LKScrollDirection.vertical,
+        inset: NSDirectionalEdgeInsets = .zero,
+        header: LKCompositionalHeader? = nil,
+        footer: LKCompositionalFooter? = nil,
+        groupDirection: NSLayoutConstraint.Axis = .horizontal,
+        groupSize: LKListDimension,
+        groupBetweenSpacing: CGFloat = 0,
+        groupInnerSpacing: NSCollectionLayoutSpacing? = nil,
+        groupInset: NSDirectionalEdgeInsets = .zero,
+        groupItem: LKListCompositionalFlowItem<ItemIdentifier>
+    ) -> LKFlatListView {
+        // group
+        let group: NSCollectionLayoutGroup!
+        if groupDirection == .horizontal {
+            group = NSCollectionLayoutGroup.horizontal(
+                layoutSize: groupSize,
+                subitems: groupItem.layout()
+            )
+            group.contentInsets = groupInset
+        } else {
+            group = NSCollectionLayoutGroup.vertical(
+                layoutSize: groupSize,
+                subitems: groupItem.layout()
+            )
+            group.contentInsets = groupInset
+        }
+        group.interItemSpacing = groupInnerSpacing
+        // section
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = inset
+        section.interGroupSpacing = groupBetweenSpacing
+        var boundarySupplementaryItems: [NSCollectionLayoutBoundarySupplementaryItem] = []
+        if let header = header?.resolve() {
+            boundarySupplementaryItems.append(header)
+        }
+        if let footer = footer?.resolve() {
+            boundarySupplementaryItems.append(footer)
+        }
+        section.boundarySupplementaryItems = boundarySupplementaryItems
+        // configuration
+        let configuration = UICollectionViewCompositionalLayoutConfiguration()
+        configuration.scrollDirection = scrollDirection
+        // layout
+        let layout = UICollectionViewCompositionalLayout(
+            section: section,
+            configuration: configuration
+        )
+        return LKFlatListView(
+            frame: frame,
+            layout: layout,
+            dataSource: dataSource,
+            delegate: LKFlatListViewDelegate(dataSource: dataSource),
+            header: header,
+            footer: footer,
+            item: groupItem
+
+        )
     }
 }

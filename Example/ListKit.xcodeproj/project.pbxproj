@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		20AAE9F22CF3FF17002F864C /* LKFlatListCompositionalWaterfallLayoutPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AAE9F12CF3FF17002F864C /* LKFlatListCompositionalWaterfallLayoutPlayground.swift */; };
-		20AAE9F32CF3FF17002F864C /* LKFlatListCompositionalLayoutPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AAE9F02CF3FF17002F864C /* LKFlatListCompositionalLayoutPlayground.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -31,8 +29,6 @@
 /* Begin PBXFileReference section */
 		153DBD6D99D7165C79384D67 /* Pods-ListKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-ListKit_Example/Pods-ListKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		192D7B721BCE0242A0913FEA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		20AAE9F02CF3FF17002F864C /* LKFlatListCompositionalLayoutPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKFlatListCompositionalLayoutPlayground.swift; sourceTree = "<group>"; };
-		20AAE9F12CF3FF17002F864C /* LKFlatListCompositionalWaterfallLayoutPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKFlatListCompositionalWaterfallLayoutPlayground.swift; sourceTree = "<group>"; };
 		2F396231AD0A8C9D544C869A /* Pods_ListKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4DB4DCF42B055F837CA7B8 /* ListKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ListKit.podspec; path = ../ListKit.podspec; sourceTree = "<group>"; };
 		53EEF627C29926AB40210F63 /* Pods-ListKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListKit_Example.release.xcconfig"; path = "Target Support Files/Pods-ListKit_Example/Pods-ListKit_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -53,6 +49,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		209E221C2D07C3030085A28F /* ListKit */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ListKit; sourceTree = "<group>"; };
+		20BB6BED2D0C0896002E5053 /* Demo */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Demo; sourceTree = "<group>"; };
 		20C5AD7B2D07C19A00E5BABC /* ZHList */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ZHList; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -109,11 +106,10 @@
 		607FACD21AFB9204008FA782 /* Example for ListKit */ = {
 			isa = PBXGroup;
 			children = (
+				20BB6BED2D0C0896002E5053 /* Demo */,
 				209E221C2D07C3030085A28F /* ListKit */,
 				20C5AD7B2D07C19A00E5BABC /* ZHList */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				20AAE9F02CF3FF17002F864C /* LKFlatListCompositionalLayoutPlayground.swift */,
-				20AAE9F12CF3FF17002F864C /* LKFlatListCompositionalWaterfallLayoutPlayground.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -188,6 +184,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				209E221C2D07C3030085A28F /* ListKit */,
+				20BB6BED2D0C0896002E5053 /* Demo */,
 				20C5AD7B2D07C19A00E5BABC /* ZHList */,
 			);
 			name = ListKit_Example;
@@ -344,8 +341,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20AAE9F22CF3FF17002F864C /* LKFlatListCompositionalWaterfallLayoutPlayground.swift in Sources */,
-				20AAE9F32CF3FF17002F864C /* LKFlatListCompositionalLayoutPlayground.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);

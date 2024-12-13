@@ -7,18 +7,11 @@
 //
 import UIKit
 
-public struct LKListFlowItem<ItemIdentifier>
+public class LKListFlowItem<ItemIdentifier>: LKListItem<ItemIdentifier>
 where
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
 {
-    public typealias Render = (
-        _ listView: UICollectionView,
-        _ indexPath: IndexPath,
-        _ itemIdentifier: ItemIdentifier
-    ) -> UICollectionViewCell?
-
     public let size: LKListSize
-    public let render: LKListFlowItem<ItemIdentifier>.Render
 
     /// 初始化一个 `LKFlatListItem` 实例，用于定义列表项的尺寸、渲染逻辑和选中回调。
     ///
@@ -59,7 +52,7 @@ where
             (itemView, indexPath, item) in
             render(itemView, indexPath, item)
         }
-        self.render = {
+        super.init {
             (
                 _ listView: UICollectionView,
                 _ indexPath: IndexPath,
@@ -74,7 +67,7 @@ where
     }
 
     public init(
-        resolve: @escaping LKResolver<ItemIdentifier>,
+        resolve: @escaping LKListResolver<ItemIdentifier>,
         items: [String: LKListFlowItem<ItemIdentifier>]
     ) {
         self.size = .dynamic { (listView, indexPath, identify: ItemIdentifier) in
@@ -83,7 +76,7 @@ where
             }
             return item.size.resolve(listView, indexPath, identify)
         }
-        self.render = {
+        super.init {
             (
                 _ listView: UICollectionView,
                 _ indexPath: IndexPath,

@@ -6,4 +6,4 @@
 //  Copyright © 2024 CocoaPods. All rights reserved.
 //
 
-public typealias LKResolver<Identifier> = (_ index: Int, _ identifier: Identifier) -> String
+public typealias LKListResolver<Identifier> = (_ index: Int, _ identifier: Identifier) -> String
