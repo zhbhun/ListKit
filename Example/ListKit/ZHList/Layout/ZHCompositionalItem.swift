@@ -119,13 +119,13 @@ where
     }
 }
 
-public class LKCompositionalWaterfallItem<ItemIdentifier>: ZHCompositionalItem
+public class ZHCompositionalWaterfallItem<ItemIdentifier>: ZHCompositionalItem
 where
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
 {
     public typealias ItemRatioProvider = (_ item: ItemIdentifier) -> CGFloat
 
-    public let ratio: LKCompositionalWaterfallItem<ItemIdentifier>.ItemRatioProvider
+    public let ratio: ZHCompositionalWaterfallItem<ItemIdentifier>.ItemRatioProvider
 
     public init<ItemView>(
         ratio: @escaping (_ item: ItemIdentifier) -> CGFloat,

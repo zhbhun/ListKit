@@ -30,16 +30,16 @@ where
         item: LKListItem<ItemIdentifier>
     ) {
         super.init(frame: frame, collectionViewLayout: layout)
-        self.bindDataSource(
+        self.initDataSource(
             dataSource: dataSource,
             header: header,
             footer: footer,
             item: item
         )
-        self.bindDelegate(delegate)
+        self.initDelegate(delegate)
     }
 
-    private func bindDataSource(
+    private func initDataSource(
         dataSource: LKFlatListDataSource<ItemIdentifier>,
         header: LKListSupplementary? = nil,
         footer: LKListSupplementary? = nil,
@@ -81,7 +81,7 @@ where
         self.diffableDataSource = diffableDataSource
     }
 
-    private func bindDelegate(_ delegate: LKFlatListViewDelegate<ItemIdentifier>) {
+    private func initDelegate(_ delegate: LKFlatListViewDelegate<ItemIdentifier>) {
         delegate.listView = self
         self.listDelegate = delegate
         self.delegate = delegate
@@ -177,7 +177,76 @@ where
             header: header,
             footer: footer,
             item: groupItem
+        )
+    }
 
+    public static func waterfall(
+        frame: CGRect,
+        dataSource: LKFlatListDataSource<ItemIdentifier>,
+        scrollDirection: LKScrollDirection = LKScrollDirection.vertical,
+        inset: NSDirectionalEdgeInsets = .zero,
+        header: LKCompositionalHeader? = nil,
+        footer: LKCompositionalFooter? = nil,
+        crossAxisCount: Int,
+        crossAxisSpacing: CGFloat,
+        mainAxisSpacing: CGFloat,
+        item: LKListCompositionalWaterfallItem<ItemIdentifier>
+    ) -> LKFlatListView {
+        let configuration = UICollectionViewCompositionalLayoutConfiguration()
+        configuration.scrollDirection = scrollDirection
+        var boundarySupplementaryItems: [NSCollectionLayoutBoundarySupplementaryItem] = []
+        if let header = header?.resolve() {
+            boundarySupplementaryItems.append(header)
+        }
+        if let footer = footer?.resolve() {
+            boundarySupplementaryItems.append(footer)
+        }
+        let layout = UICollectionViewCompositionalLayout(
+            sectionProvider: { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
+                let group = NSCollectionLayoutGroup.custom(
+                    layoutSize: NSCollectionLayoutSize(
+                        widthDimension: .fractionalWidth(1.0),
+                        heightDimension: .estimated(300))
+                ) { environment in
+                    let contentWidth =
+                        environment.container.contentSize.width - inset.leading - inset.trailing
+                    let itemWidth =
+                        (contentWidth - CGFloat(crossAxisCount - 1) * crossAxisSpacing)
+                        / CGFloat(crossAxisCount)
+                    var layoutAttributes: [NSCollectionLayoutGroupCustomItem] = []
+                    var columnHeights = Array(repeating: CGFloat(0), count: crossAxisCount)
+                    for i in 0..<Int(dataSource.numberOfItems) {
+                        let columnIndex =
+                            columnHeights.enumerated().min(by: { $0.element < $1.element })?.offset
+                            ?? 0
+                        let xOffset = CGFloat(columnIndex) * (itemWidth + crossAxisSpacing)
+                        let itemIdentifier = dataSource.itemIdentifier(for: i)
+                        let itemHeight =
+                            itemIdentifier == nil ? 0 : itemWidth / item.ratio(itemIdentifier!)
+                        let yOffset = columnHeights[columnIndex]
+                        let frame = CGRect(
+                            x: xOffset, y: yOffset, width: itemWidth, height: itemHeight)
+                        layoutAttributes.append(NSCollectionLayoutGroupCustomItem(frame: frame))
+                        columnHeights[columnIndex] += itemHeight + mainAxisSpacing
+                    }
+                    return layoutAttributes
+                }
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = inset
+                section.boundarySupplementaryItems = boundarySupplementaryItems
+
+                return section
+            },
+            configuration: configuration
+        )
+        return LKFlatListView(
+            frame: frame,
+            layout: layout,
+            dataSource: dataSource,
+            delegate: LKFlatListViewDelegate(dataSource: dataSource),
+            header: header,
+            footer: footer,
+            item: item
         )
     }
 }

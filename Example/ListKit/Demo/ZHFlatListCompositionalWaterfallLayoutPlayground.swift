@@ -9,7 +9,7 @@
 
 import UIKit
 
-class LKFlatListCompositionalWaterfallLayoutPlayground: UIViewController {
+class ZHFlatListCompositionalWaterfallLayoutPlayground: UIViewController {
     class Item: Hashable {
         let id: UUID
         let title: String
@@ -81,7 +81,7 @@ class LKFlatListCompositionalWaterfallLayoutPlayground: UIViewController {
                 crossAxisCount: 2,
                 crossAxisSpacing: 15,
                 mainAxisSpacing: 10,
-                item: LKCompositionalWaterfallItem<Item>(
+                item: ZHCompositionalWaterfallItem<Item>(
                     ratio: { item in
                         return item.ratio
                     },
@@ -147,7 +147,7 @@ fileprivate class CustomCell: UICollectionViewCell {
         super.init(coder: coder)
     }
     
-    func configure(_ item: LKFlatListCompositionalWaterfallLayoutPlayground.Item) {
+    func configure(_ item: ZHFlatListCompositionalWaterfallLayoutPlayground.Item) {
         label.text = item.title
         contentView.backgroundColor = item.color
     }

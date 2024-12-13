@@ -8,14 +8,14 @@
 
 import UIKit
 
-class LKFlatListCompositionalPlayground: UIViewController {
+class LKFlatListWaterfallPlayground: UIViewController {
     class Item: Hashable {
         let id: UUID
         let title: String
         let color: UIColor
-        let height: CGFloat
+        let ratio: CGFloat
 
-        init(id: UUID, title: String, height: CGFloat) {
+        init(id: UUID, title: String, ratio: CGFloat? = nil) {
             self.id = id
             self.title = title
             self.color = UIColor(
@@ -24,7 +24,7 @@ class LKFlatListCompositionalPlayground: UIViewController {
                 blue: CGFloat.random(in: 0...1),
                 alpha: 1.0
             )
-            self.height = height
+            self.ratio = ratio ?? CGFloat.random(in: 0.5...1.5)
         }
 
         func hash(into hasher: inout Hasher) {
@@ -48,14 +48,13 @@ class LKFlatListCompositionalPlayground: UIViewController {
             snapshot.appendItems([
                 Item(
                     id: UUID(),
-                    title: "\($0)",
-                    height: CGFloat(Int.random(in: 50...300))
+                    title: "\($0)"
                 )
             ])
         }
         dataSource.apply(snapshot, mode: .reload)
 
-        listView = .compositional(
+        listView = .waterfall(
             frame: view.frame,
             dataSource: dataSource,
             inset: NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20),
@@ -77,22 +76,17 @@ class LKFlatListCompositionalPlayground: UIViewController {
                     supplementary.label.text = "Footer"
                 }
             ),
-            groupSize: LKListDimension(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .estimated(100)
-            ),
-            groupBetweenSpacing: 10,
-            groupItem: LKListCompositionalFlowItem<Item>(
-                size: ZHDimension(
-                    widthDimension: .fractionalWidth(1),
-                    heightDimension: .estimated(100)
-                ),
+            crossAxisCount: 2,
+            crossAxisSpacing: 15,
+            mainAxisSpacing: 10,
+            item: LKListCompositionalWaterfallItem<Item>(
+                ratio: { $0.ratio },
                 render: { (cell: CustomCell, indexPath, item) in
                     cell.configure(item)
                 }
             )
         ).onDidSelectItemAt { listView, indexPath, itemIdentifier in
-            print(">> \(itemIdentifier.id) \(itemIdentifier.title) \(itemIdentifier.height)")
+            print(">> \(itemIdentifier.id) \(itemIdentifier.title) \(itemIdentifier.ratio)")
         }
         view.addSubview(listView)
     }
@@ -132,7 +126,6 @@ private class CustomCell: UICollectionViewCell {
         label.textColor = .white
         return label
     }()
-    private var heightConstraint: NSLayoutConstraint?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -141,23 +134,19 @@ private class CustomCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
         ])
-        heightConstraint = label.heightAnchor.constraint(equalToConstant: 0)
-        heightConstraint?.priority = .defaultHigh
-        heightConstraint?.isActive = true
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
 
-    func configure(_ item: LKFlatListCompositionalPlayground.Item) {
+    func configure(_ item: LKFlatListWaterfallPlayground.Item) {
         label.text = item.title
-        heightConstraint?.constant = item.height
         contentView.backgroundColor = item.color
     }
 }

@@ -114,7 +114,7 @@ where
 {
     public typealias RatioProvider = (_ item: ItemIdentifier) -> CGFloat
 
-    public let ratio: LKCompositionalWaterfallItem<ItemIdentifier>.ItemRatioProvider
+    public let ratio: LKListCompositionalWaterfallItem<ItemIdentifier>.RatioProvider
 
     public init<ItemView>(
         ratio: @escaping (_ item: ItemIdentifier) -> CGFloat,

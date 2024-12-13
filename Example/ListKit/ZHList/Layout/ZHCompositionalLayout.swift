@@ -93,7 +93,7 @@ where
         crossAxisCount: Int,
         crossAxisSpacing: CGFloat,
         mainAxisSpacing: CGFloat,
-        item: LKCompositionalWaterfallItem<ItemIdentifier>
+        item: ZHCompositionalWaterfallItem<ItemIdentifier>
     ) -> ZHCompositionalLayout<ItemIdentifier> {
 
         let configuration = UICollectionViewCompositionalLayoutConfiguration()
@@ -170,7 +170,7 @@ where
         crossAxisCount: Int,
         crossAxisSpacing: CGFloat,
         mainAxisSpacing: CGFloat,
-        item: LKCompositionalWaterfallItem<ItemIdentifier>
+        item: ZHCompositionalWaterfallItem<ItemIdentifier>
     ) -> ZHCompositionalLayout<ItemIdentifier> {
         return waterfalls(
             scrollDirection: scrollDirection,
