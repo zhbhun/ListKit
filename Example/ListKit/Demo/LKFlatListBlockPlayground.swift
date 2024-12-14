@@ -8,14 +8,14 @@
 
 import UIKit
 
-class LKFlatListWaterfallPlayground: UIViewController {
+class LKFlatListBlockPlayground: UIViewController {
     class Item: Hashable {
         let id: UUID
         let title: String
         let color: UIColor
-        let ratio: CGFloat
+        let height: CGFloat
 
-        init(id: UUID, title: String, ratio: CGFloat? = nil) {
+        init(id: UUID, title: String, height: CGFloat) {
             self.id = id
             self.title = title
             self.color = UIColor(
@@ -24,7 +24,7 @@ class LKFlatListWaterfallPlayground: UIViewController {
                 blue: CGFloat.random(in: 0...1),
                 alpha: 1.0
             )
-            self.ratio = ratio ?? CGFloat.random(in: 0.5...1.5)
+            self.height = height
         }
 
         func hash(into hasher: inout Hasher) {
@@ -48,7 +48,8 @@ class LKFlatListWaterfallPlayground: UIViewController {
             snapshot.appendItems([
                 Item(
                     id: UUID(),
-                    title: "\($0)"
+                    title: "\($0)",
+                    height: CGFloat(Int.random(in: 50...300))
                 )
             ])
         }
@@ -76,17 +77,15 @@ class LKFlatListWaterfallPlayground: UIViewController {
                     supplementary.label.text = "Footer"
                 }
             ),
-            item: LKListCompositionalWaterfall<Item>(
-                crossAxisCount: 2,
-                crossAxisSpacing: 15,
-                mainAxisSpacing: 10,
-                ratio: { $0.ratio },
+            item: LKListCompositionalBlock(
+                size: .estimated(100),
+                spacing: 10,
                 render: { (cell: CustomCell, indexPath, item) in
                     cell.configure(item)
                 }
             )
         ).onDidSelectItemAt { listView, indexPath, itemIdentifier in
-            print(">> \(itemIdentifier.id) \(itemIdentifier.title) \(itemIdentifier.ratio)")
+            print(">> \(itemIdentifier.id) \(itemIdentifier.title) \(itemIdentifier.height)")
         }
         view.addSubview(listView)
     }
@@ -126,6 +125,7 @@ private class CustomCell: UICollectionViewCell {
         label.textColor = .white
         return label
     }()
+    private var heightConstraint: NSLayoutConstraint?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -134,19 +134,23 @@ private class CustomCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
         ])
+        heightConstraint = label.heightAnchor.constraint(equalToConstant: 0)
+        heightConstraint?.priority = .defaultHigh
+        heightConstraint?.isActive = true
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
 
-    func configure(_ item: LKFlatListWaterfallPlayground.Item) {
+    func configure(_ item: LKFlatListBlockPlayground.Item) {
         label.text = item.title
+        heightConstraint?.constant = item.height
         contentView.backgroundColor = item.color
     }
 }

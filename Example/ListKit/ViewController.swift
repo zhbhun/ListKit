@@ -42,12 +42,17 @@ class ViewController: UIViewController {
         snapshot.appendItems([
             Item(
                 id: UUID(),
-                title: "LKFlatListView.compositional",
-                factory: { LKFlatListCompositionalPlayground() }
+                title: "LKFlatListView.compositional(block)",
+                factory: { LKFlatListBlockPlayground() }
             ),
             Item(
                 id: UUID(),
-                title: "LKFlatListView.waterfall",
+                title: "LKFlatListView.compositional(cell)",
+                factory: { LKFlatListCellPlayground() }
+            ),
+            Item(
+                id: UUID(),
+                title: "LKFlatListView.compositional(waterfall)",
                 factory: { LKFlatListWaterfallPlayground() }
             ),
             Item(

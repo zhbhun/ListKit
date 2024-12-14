@@ -31,7 +31,7 @@ public class LKCompositionalSupplementary: LKListSupplementary {
 }
 
 public class LKCompositionalBoundarySupplementary: LKCompositionalSupplementary {
-    public let size: LKListDimension
+    public let size: LKListCompositionalDimension
     public let contentInsets: NSDirectionalEdgeInsets?
     public let zIndex: Int?
     public let alignment: LKListRectAlignment
@@ -40,7 +40,7 @@ public class LKCompositionalBoundarySupplementary: LKCompositionalSupplementary 
 
     public init<SupplementaryView>(
         kind: String,
-        size: LKListDimension,
+        size: LKListCompositionalDimension,
         contentInsets: NSDirectionalEdgeInsets? = .zero,
         zIndex: Int? = nil,
         alignment: LKListRectAlignment = .top,
@@ -71,7 +71,7 @@ public class LKCompositionalBoundarySupplementary: LKCompositionalSupplementary 
 
 public class LKCompositionalHeader: LKCompositionalBoundarySupplementary {
     public init<SupplementaryView>(
-        size: LKListDimension,
+        size: LKListCompositionalDimension,
         contentInsets: NSDirectionalEdgeInsets? = .zero,
         zIndex: Int? = nil,
         offset: CGPoint? = nil,
@@ -93,7 +93,7 @@ public class LKCompositionalHeader: LKCompositionalBoundarySupplementary {
 
 public class LKCompositionalFooter: LKCompositionalBoundarySupplementary {
     public init<SupplementaryView>(
-        size: LKListDimension,
+        size: LKListCompositionalDimension,
         contentInsets: NSDirectionalEdgeInsets? = .zero,
         zIndex: Int? = nil,
         offset: CGPoint? = nil,

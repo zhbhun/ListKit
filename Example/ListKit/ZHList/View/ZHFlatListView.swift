@@ -15,7 +15,7 @@ where
     public static func flow(
         frame: CGRect = .zero,
         dataSource: ZHFlatListDataSource<ItemIdentifier>,
-        scrollDirection: LKScrollDirection = LKScrollDirection.vertical,
+        scrollDirection: LKListScrollDirection = LKListScrollDirection.vertical,
         inset: ZHListEdgeInsets? = nil,
         mainAxisSpacing: ZHListFloat? = nil,
         crossAxisSpacing: ZHListFloat? = nil,

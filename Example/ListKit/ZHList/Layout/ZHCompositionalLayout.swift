@@ -25,7 +25,7 @@ where
     }
 
     public static func flow(
-        scrollDirection: LKScrollDirection = LKScrollDirection.vertical,
+        scrollDirection: LKListScrollDirection = LKListScrollDirection.vertical,
         insets: NSDirectionalEdgeInsets = .zero,
         header: ZHCompositionalBoundarySupplementary? = nil,
         footer: ZHCompositionalBoundarySupplementary? = nil,
@@ -85,7 +85,7 @@ where
     }
 
     public static func waterfalls(
-        scrollDirection: LKScrollDirection = LKScrollDirection.vertical,
+        scrollDirection: LKListScrollDirection = LKListScrollDirection.vertical,
         dataSource: ZHFlatListDataSource<ItemIdentifier>,
         insets: NSDirectionalEdgeInsets = .zero,
         header: ZHCompositionalBoundarySupplementary? = nil,
@@ -162,7 +162,7 @@ where
     }
 
     public static func waterfall(
-        scrollDirection: LKScrollDirection = LKScrollDirection.vertical,
+        scrollDirection: LKListScrollDirection = LKListScrollDirection.vertical,
         dataSource: ZHFlatListDataSource<ItemIdentifier>,
         insets: NSDirectionalEdgeInsets = .zero,
         header: ZHCompositionalBoundarySupplementary? = nil,

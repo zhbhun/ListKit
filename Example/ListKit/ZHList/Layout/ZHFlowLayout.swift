@@ -18,7 +18,7 @@ ItemIdentifier : Hashable, ItemIdentifier : Sendable {
     
     public init(
         x: Int,
-        scrollDirection: LKScrollDirection = LKScrollDirection.vertical,
+        scrollDirection: LKListScrollDirection = LKListScrollDirection.vertical,
         inset: ZHListEdgeInsets? = nil,
         mainAxisSpacing: ZHListFloat? = nil,
         crossAxisSpacing: ZHListFloat? = nil,
@@ -41,7 +41,7 @@ ItemIdentifier : Hashable, ItemIdentifier : Sendable {
     ///   - inset: UIEdgeInsets / ZHDynamicEdgeInsets
     /// - Returns: ...
     public init(
-        scrollDirection: LKScrollDirection = LKScrollDirection.vertical,
+        scrollDirection: LKListScrollDirection = LKListScrollDirection.vertical,
         inset: ZHListEdgeInsets? = nil,
         mainAxisSpacing: ZHListFloat? = nil,
         crossAxisSpacing: ZHListFloat? = nil,

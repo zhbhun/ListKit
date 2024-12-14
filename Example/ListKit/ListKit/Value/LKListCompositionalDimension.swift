@@ -7,4 +7,4 @@
 //
 import UIKit
 
-public typealias LKListDimension = NSCollectionLayoutSize
+public typealias LKListCompositionalDimension = NSCollectionLayoutSize

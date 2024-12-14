@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LKFlatListCompositionalPlayground: UIViewController {
+class LKFlatListCellPlayground: UIViewController {
     class Item: Hashable {
         let id: UUID
         let title: String
@@ -77,15 +77,13 @@ class LKFlatListCompositionalPlayground: UIViewController {
                     supplementary.label.text = "Footer"
                 }
             ),
-            groupSize: LKListDimension(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .estimated(100)
-            ),
-            groupBetweenSpacing: 10,
-            groupItem: LKListCompositionalFlowItem<Item>(
-                size: ZHDimension(
-                    widthDimension: .fractionalWidth(1),
-                    heightDimension: .estimated(100)
+            item: LKListCompositionalCell(
+                mainAxisSize: .estimated(70),
+                mainAxisSpacing: 10,
+                crossAxisSpacing: .fixed(10),
+                cellSize: .init(
+                    widthDimension: .fractionalWidth(0.2),
+                    heightDimension: .fractionalWidth(0.2)
                 ),
                 render: { (cell: CustomCell, indexPath, item) in
                     cell.configure(item)
@@ -132,7 +130,6 @@ private class CustomCell: UICollectionViewCell {
         label.textColor = .white
         return label
     }()
-    private var heightConstraint: NSLayoutConstraint?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -146,18 +143,14 @@ private class CustomCell: UICollectionViewCell {
             label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
         ])
-        heightConstraint = label.heightAnchor.constraint(equalToConstant: 0)
-        heightConstraint?.priority = .defaultHigh
-        heightConstraint?.isActive = true
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
 
-    func configure(_ item: LKFlatListCompositionalPlayground.Item) {
+    func configure(_ item: LKFlatListCellPlayground.Item) {
         label.text = item.title
-        heightConstraint?.constant = item.height
         contentView.backgroundColor = item.color
     }
 }

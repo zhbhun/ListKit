@@ -19,7 +19,7 @@ where
     public static func flow(
         frame: CGRect,
         dataSource: LKSectionListDataSource<SectionIdentifier, ItemIdentifier>,
-        scrollDirection: LKScrollDirection = LKScrollDirection.vertical,
+        scrollDirection: LKListScrollDirection = LKListScrollDirection.vertical,
         resolve: @escaping (_ index: Int, _ section: SectionIdentifier) -> String,
         sections: [String: LKListFlowSection<SectionIdentifier, ItemIdentifier>]
     ) -> LKSectionListView<SectionIdentifier, ItemIdentifier> {
@@ -35,7 +35,7 @@ where
     private init(
         frame: CGRect,
         dataSource: LKSectionListDataSource<SectionIdentifier, ItemIdentifier>,
-        scrollDirection: LKScrollDirection = LKScrollDirection.vertical,
+        scrollDirection: LKListScrollDirection = LKListScrollDirection.vertical,
         resolve: @escaping (_ index: Int, _ section: SectionIdentifier) -> String,
         sections: [String: LKListFlowSection<SectionIdentifier, ItemIdentifier>]
     ) {

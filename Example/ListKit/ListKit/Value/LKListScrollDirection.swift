@@ -7,4 +7,4 @@
 //
 import UIKit
 
-public typealias LKScrollDirection = UICollectionView.ScrollDirection
+public typealias LKListScrollDirection = UICollectionView.ScrollDirection
