@@ -8,13 +8,13 @@
 
 import UIKit
 
-public class LKSectionListViewFlowDelegate<SectionIdentifier, ItemIdentifier>: NSObject,
+public class LKSectionListViewFlowDelegate<SectionIdentifier, ItemIdentifier>:
+    LKSectionListViewDelegate<SectionIdentifier, ItemIdentifier>,
     UICollectionViewDelegateFlowLayout
 where
     SectionIdentifier: Hashable, SectionIdentifier: Sendable,
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
 {
-    public weak var dataSource: LKSectionListDataSource<SectionIdentifier, ItemIdentifier>!
     public let resolve: (_ index: Int, _ section: SectionIdentifier) -> String
     public let sections: [String: LKListFlowSection<SectionIdentifier, ItemIdentifier>]
 
@@ -23,9 +23,9 @@ where
         resolve: @escaping (_ index: Int, _ section: SectionIdentifier) -> String,
         sections: [String: LKListFlowSection<SectionIdentifier, ItemIdentifier>]
     ) {
-        self.dataSource = dataSource
         self.resolve = resolve
         self.sections = sections
+        super.init(dataSource: dataSource)
     }
 
     private func getSetion(_ index: Int) -> (
@@ -38,11 +38,12 @@ where
         return (identify, section)
     }
 
+    // MARK: UICollectionViewDelegateFlowLayout
     public func collectionView(
         _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        guard let (identify, section) = getSetion(indexPath.section) else {
+        guard let (_, section) = getSetion(indexPath.section) else {
             return .zero
         }
         return section.item.size.resolve(
@@ -98,8 +99,9 @@ where
         guard let (identify, section) = getSetion(section) else {
             return .zero
         }
-        return section.header?.size.resolve(
+        let size = section.header?.size.resolve(
             collectionView, IndexPath(item: 0, section: index), identify) ?? .zero
+        return size
     }
 
     public func collectionView(
@@ -111,6 +113,6 @@ where
             return .zero
         }
         return section.footer?.size.resolve(
-            collectionView, IndexPath(item: 0, section: 0), identify) ?? .zero
+            collectionView, IndexPath(item: 0, section: index), identify) ?? .zero
     }
 }

@@ -19,7 +19,7 @@ where
     ) -> LKListReusableView?
 
     public let size: LKListSize
-    private let _sectionRender: LKListFlowSectionSupplementary<SectionIdentifier>.Render
+    public let sectionRender: LKListFlowSectionSupplementary<SectionIdentifier>.Render
 
     public init<SupplementaryView>(
         kind: String,
@@ -38,7 +38,7 @@ where
             guard let sectionIdentifier = lastSectionIdentifier else { return }
             render(supplementaryView, indexPath, sectionIdentifier)
         }
-        self._sectionRender = {
+        self.sectionRender = {
             (
                 _ listView: LKListView,
                 _ indexPath: IndexPath,
@@ -56,7 +56,7 @@ where
     public func render(
         _ listView: LKListView, _ indexPath: IndexPath, _ sectionIdentifier: SectionIdentifier
     ) -> LKListReusableView? {
-        return _sectionRender(listView, indexPath, sectionIdentifier)
+        return sectionRender(listView, indexPath, sectionIdentifier)
     }
 }
 

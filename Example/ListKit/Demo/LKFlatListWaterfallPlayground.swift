@@ -58,7 +58,7 @@ class LKFlatListWaterfallPlayground: UIViewController {
             frame: view.frame,
             dataSource: dataSource,
             inset: NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20),
-            header: LKCompositionalHeader(
+            header: LKListCompositionalHeader(
                 size: ZHDimension(
                     widthDimension: .fractionalWidth(1),
                     heightDimension: .absolute(50)
@@ -67,7 +67,7 @@ class LKFlatListWaterfallPlayground: UIViewController {
                     supplementary.label.text = "Header"
                 }
             ),
-            footer: LKCompositionalFooter(
+            footer: LKListCompositionalFooter(
                 size: ZHDimension(
                     widthDimension: .fractionalWidth(1),
                     heightDimension: .absolute(50)

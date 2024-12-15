@@ -57,6 +57,16 @@ class ViewController: UIViewController {
             ),
             Item(
                 id: UUID(),
+                title: "LKSectionList.flow",
+                factory: { LKSectionListFlowPlayground() }
+            ),
+            Item(
+                id: UUID(),
+                title: "LKSectionList.compositional",
+                factory: { LKSectionListCompositionalPlayground() }
+            ),
+            Item(
+                id: UUID(),
                 title: "ZHFlatListCompositionalLayout",
                 factory: { ZHFlatListCompositionalPlayground() }
             ),

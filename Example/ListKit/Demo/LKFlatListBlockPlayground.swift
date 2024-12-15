@@ -59,7 +59,7 @@ class LKFlatListBlockPlayground: UIViewController {
             frame: view.frame,
             dataSource: dataSource,
             inset: NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20),
-            header: LKCompositionalHeader(
+            header: LKListCompositionalHeader(
                 size: ZHDimension(
                     widthDimension: .fractionalWidth(1),
                     heightDimension: .absolute(50)
@@ -68,7 +68,7 @@ class LKFlatListBlockPlayground: UIViewController {
                     supplementary.label.text = "Header"
                 }
             ),
-            footer: LKCompositionalFooter(
+            footer: LKListCompositionalFooter(
                 size: ZHDimension(
                     widthDimension: .fractionalWidth(1),
                     heightDimension: .absolute(50)
@@ -77,7 +77,7 @@ class LKFlatListBlockPlayground: UIViewController {
                     supplementary.label.text = "Footer"
                 }
             ),
-            item: LKListCompositionalBlock(
+            item: LKListCompositionalBlock<Item>(
                 size: .estimated(100),
                 spacing: 10,
                 render: { (cell: CustomCell, indexPath, item) in

@@ -124,8 +124,8 @@ where
         dataSource: LKFlatListDataSource<ItemIdentifier>,
         scrollDirection: LKListScrollDirection = LKListScrollDirection.vertical,
         inset: NSDirectionalEdgeInsets = .zero,
-        header: LKCompositionalHeader? = nil,
-        footer: LKCompositionalFooter? = nil,
+        header: LKListCompositionalHeader? = nil,
+        footer: LKListCompositionalFooter? = nil,
         item: LKListCompositionalItem<ItemIdentifier>
     ) -> LKFlatListView {
         let configuration = UICollectionViewCompositionalLayoutConfiguration()
