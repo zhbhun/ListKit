@@ -60,7 +60,7 @@ class LKFlatListCellPlayground: UIViewController {
             dataSource: dataSource,
             inset: NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20),
             header: LKListCompositionalHeader(
-                size: ZHDimension(
+                size: .init(
                     widthDimension: .fractionalWidth(1),
                     heightDimension: .absolute(50)
                 ),
@@ -69,7 +69,7 @@ class LKFlatListCellPlayground: UIViewController {
                 }
             ),
             footer: LKListCompositionalFooter(
-                size: ZHDimension(
+                size: .init(
                     widthDimension: .fractionalWidth(1),
                     heightDimension: .absolute(50)
                 ),

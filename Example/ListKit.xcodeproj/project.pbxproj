@@ -50,7 +50,6 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		209E221C2D07C3030085A28F /* ListKit */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ListKit; sourceTree = "<group>"; };
 		20BB6BED2D0C0896002E5053 /* Demo */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Demo; sourceTree = "<group>"; };
-		20C5AD7B2D07C19A00E5BABC /* ZHList */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ZHList; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +107,6 @@
 			children = (
 				20BB6BED2D0C0896002E5053 /* Demo */,
 				209E221C2D07C3030085A28F /* ListKit */,
-				20C5AD7B2D07C19A00E5BABC /* ZHList */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -185,7 +183,6 @@
 			fileSystemSynchronizedGroups = (
 				209E221C2D07C3030085A28F /* ListKit */,
 				20BB6BED2D0C0896002E5053 /* Demo */,
-				20C5AD7B2D07C19A00E5BABC /* ZHList */,
 			);
 			name = ListKit_Example;
 			productName = ListKit;

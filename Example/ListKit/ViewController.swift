@@ -64,17 +64,7 @@ class ViewController: UIViewController {
                 id: UUID(),
                 title: "LKSectionList.compositional",
                 factory: { LKSectionListCompositionalPlayground() }
-            ),
-            Item(
-                id: UUID(),
-                title: "ZHFlatListCompositionalLayout",
-                factory: { ZHFlatListCompositionalPlayground() }
-            ),
-            Item(
-                id: UUID(),
-                title: "ZHFlatListCompositionalWaterfallLayout",
-                factory: { ZHFlatListCompositionalWaterfallLayoutPlayground() }
-            ),
+            )
         ])
         dataSource.apply(snapshot, mode: .reload)
 
