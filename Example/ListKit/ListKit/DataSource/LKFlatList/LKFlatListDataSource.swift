@@ -5,6 +5,7 @@
 //  Created by zhbhun on 2024/11/14.
 //  Copyright © 2024 CocoaPods. All rights reserved.
 //
+import Combine
 import UIKit
 
 @available(iOS 13.0, tvOS 13.0, *)
@@ -12,18 +13,13 @@ open class LKFlatListDataSource<ItemIdentifierType>: LKListDataSource
 where
     ItemIdentifierType: Hashable, ItemIdentifierType: Sendable
 {
-    public typealias Handler = (
-        _ snapshot: LKFlatListDataSnapshot<ItemIdentifierType>, _ mode: LKListApplyMode
-    ) -> Void
-
     private var current: LKFlatListDataSnapshot<ItemIdentifierType> = LKFlatListDataSnapshot<
         ItemIdentifierType
     >()
-    private var listeners: [Handler] = []
 
-    public func onChange(_ listener: @escaping Handler) {
-        listeners.append(listener)
-    }
+    public let change = PassthroughSubject<
+        (LKFlatListDataSnapshot<ItemIdentifierType>, LKListApplyMode), Never
+    >()
 
     open func apply(
         _ snapshot: LKFlatListDataSnapshot<ItemIdentifierType>,
@@ -31,9 +27,7 @@ where
         completion: (() -> Void)? = nil
     ) {
         self.current = snapshot
-        for listener in listeners {
-            listener(snapshot, mode)
-        }
+        self.change.send((snapshot, mode))
         completion?()
     }
 
@@ -45,7 +39,7 @@ where
     }
 
     /// Returns an index for the item with the identifier you specify
-    open func index(for itemIdentifier: ItemIdentifierType) -> Int? {
+    open func indexOfItem(for itemIdentifier: ItemIdentifierType) -> Int? {
         return current.indexOfItem(itemIdentifier)
     }
 
@@ -61,6 +55,10 @@ where
             return nil
         }
         return current.itemIdentifiers[index]
+    }
+
+    open var itemIdentifiers: [ItemIdentifierType] {
+        return current.itemIdentifiers
     }
 
     /// The number of items

@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         title = "ZHListKit"
+        view.backgroundColor = .white
 
         dataSource = LKFlatListDataSource<Item>()
         var snapshot = dataSource.snapshot()
@@ -64,6 +65,11 @@ class ViewController: UIViewController {
                 id: UUID(),
                 title: "LKSectionList.compositional",
                 factory: { LKSectionListCompositionalPlayground() }
+            ),
+            Item(
+                id: UUID(),
+                title: "LKTab",
+                factory: { LKTabPlayground() }
             )
         ])
         dataSource.apply(snapshot, mode: .reload)

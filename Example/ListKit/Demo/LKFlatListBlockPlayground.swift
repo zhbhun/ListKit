@@ -41,6 +41,8 @@ class LKFlatListBlockPlayground: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .white
 
         dataSource = LKFlatListDataSource<Item>()
         var snapshot = dataSource.snapshot()

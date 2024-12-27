@@ -5,7 +5,7 @@
 //  Created by zhbhun on 2024/11/14.
 //  Copyright © 2024 CocoaPods. All rights reserved.
 //
-
+import Combine
 import UIKit
 
 public class LKSectionListView<SectionIdentifier, ItemIdentifier>: LKListBaseView<
@@ -20,6 +20,7 @@ where
         LKListViewDelegate<
             SectionIdentifier, ItemIdentifier
         >!
+    private var cancellables = Set<AnyCancellable>()
 
     private init(
         frame: CGRect,
@@ -126,19 +127,22 @@ where
                     ?? .init()
             }
         }
-        dataSource.onChange { [weak diffableDataSource] snapshot, mode in
-            guard let diffableDataSource = diffableDataSource else { return }
-            switch mode {
-            case .normal:
-                diffableDataSource.apply(
-                    snapshot.diffableDataSourceSnapshot, animatingDifferences: false)
-            case .animate:
-                diffableDataSource.apply(
-                    snapshot.diffableDataSourceSnapshot, animatingDifferences: true)
-            case .reload:
-                diffableDataSource.applySnapshotUsingReloadData(snapshot.diffableDataSourceSnapshot)
-            }
-        }
+        dataSource.change.receive(on: DispatchQueue.main)
+            .sink { [weak diffableDataSource] (snapshot, mode) in
+                guard let diffableDataSource = diffableDataSource else { return }
+                switch mode {
+                case .normal:
+                    diffableDataSource.apply(
+                        snapshot.diffableDataSourceSnapshot, animatingDifferences: false)
+                case .animate:
+                    diffableDataSource.apply(
+                        snapshot.diffableDataSourceSnapshot, animatingDifferences: true)
+                case .reload:
+                    diffableDataSource.applySnapshotUsingReloadData(
+                        snapshot.diffableDataSourceSnapshot)
+                }
+            }.store(in: &cancellables)
+
         diffableDataSource.applySnapshotUsingReloadData(
             dataSource.snapshot().diffableDataSourceSnapshot
         )
@@ -176,5 +180,9 @@ where
             resolve: resolve,
             sections: sections
         )
+    }
+
+    deinit {
+        cancellables.removeAll()
     }
 }

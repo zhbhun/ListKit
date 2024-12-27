@@ -17,7 +17,7 @@ where
     private var _current: NSDiffableDataSourceSnapshot<SectionIdentifier, ItemIdentifier>
 
     public init() {
-        var snapshot = NSDiffableDataSourceSnapshot<SectionIdentifier, ItemIdentifier>()
+        let snapshot = NSDiffableDataSourceSnapshot<SectionIdentifier, ItemIdentifier>()
         self._current = snapshot
     }
 

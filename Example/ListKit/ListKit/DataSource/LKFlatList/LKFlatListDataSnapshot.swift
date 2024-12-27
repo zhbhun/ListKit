@@ -72,4 +72,40 @@ where
     public mutating func appendItems(_ identifiers: [ItemIdentifierType]) {
         _current.appendItems(identifiers, toSection: 0)
     }
+
+    public mutating func insertItems(
+        _ identifiers: [ItemIdentifierType], beforeItem beforeIdentifier: ItemIdentifierType
+    ) {
+        _current.insertItems(identifiers, beforeItem: beforeIdentifier)
+    }
+
+    public mutating func insertItems(
+        _ identifiers: [ItemIdentifierType], afterItem afterIdentifier: ItemIdentifierType
+    ) {
+        _current.insertItems(identifiers, afterItem: afterIdentifier)
+    }
+
+    public mutating func deleteItems(_ identifiers: [ItemIdentifierType]) {
+        _current.deleteItems(identifiers)
+    }
+
+    public mutating func deleteAllItems() {
+        _current.deleteAllItems()
+    }
+
+    public mutating func moveItem(
+        _ identifier: ItemIdentifierType, beforeItem toIdentifier: ItemIdentifierType
+    ) {
+        _current.moveItem(identifier, beforeItem: toIdentifier)
+    }
+
+    public mutating func moveItem(
+        _ identifier: ItemIdentifierType, afterItem toIdentifier: ItemIdentifierType
+    ) {
+        _current.moveItem(identifier, afterItem: toIdentifier)
+    }
+
+    public mutating func reloadItems(_ identifiers: [ItemIdentifierType]) {
+        _current.reloadItems(identifiers)
+    }
 }

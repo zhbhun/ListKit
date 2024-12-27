@@ -23,6 +23,8 @@ where
     public func getSectionIdentifier(_ index: Int) -> SectionIdentifier? {
         return nil
     }
+    
+    // MARK: - UIScrollViewDelegate
 
     public func collectionView(
         _ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath

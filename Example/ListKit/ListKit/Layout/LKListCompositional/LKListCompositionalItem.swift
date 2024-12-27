@@ -46,7 +46,7 @@ where
         spacing: CGFloat = 0,
         inset: NSDirectionalEdgeInsets = .zero,
         render: @escaping Hander<ItemView>
-    ) where ItemView: LKListItemView, ItemIdentifier: Hashable, ItemIdentifier: Sendable {
+    ) where ItemView: LKListItemView {
         self.size = size
         self.spacing = spacing
         self.inset = inset
@@ -104,13 +104,13 @@ where
             group = .vertical(
                 layoutSize: .init(
                     widthDimension: groupSize,
-                    heightDimension: .fractionalWidth(1)
+                    heightDimension: .fractionalHeight(1)
                 ),
                 subitems: [
                     NSCollectionLayoutItem(
                         layoutSize: .init(
                             widthDimension: itemSize,
-                            heightDimension: .fractionalWidth(1)
+                            heightDimension: .fractionalHeight(1)
                         )
                     )
                 ]

@@ -5,16 +5,16 @@
 //  Created by zhbhun on 2024/11/14.
 //  Copyright © 2024 CocoaPods. All rights reserved.
 //
-
+import Combine
 import UIKit
 
 public class LKFlatListView<ItemIdentifier>: LKListBaseView<Int, ItemIdentifier>
 where
-
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
 {
     private var diffableDataSource: UICollectionViewDataSource!
     private var listDelegate: LKListViewDelegate<Int, ItemIdentifier>!
+    private var cancellables = Set<AnyCancellable>()
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -30,6 +30,7 @@ where
         item: LKListItem<ItemIdentifier>
     ) {
         super.init(frame: frame, collectionViewLayout: layout)
+        backgroundColor = nil
         self.initDataSource(
             dataSource: dataSource,
             header: header,
@@ -62,19 +63,22 @@ where
                 return .init()
             }
         }
-        dataSource.onChange { [weak diffableDataSource] snapshot, mode in
-            guard let diffableDataSource = diffableDataSource else { return }
-            switch mode {
-            case .normal:
-                diffableDataSource.apply(
-                    snapshot.diffableDataSourceSnapshot, animatingDifferences: false)
-            case .animate:
-                diffableDataSource.apply(
-                    snapshot.diffableDataSourceSnapshot, animatingDifferences: true)
-            case .reload:
-                diffableDataSource.applySnapshotUsingReloadData(snapshot.diffableDataSourceSnapshot)
-            }
-        }
+        dataSource.change.receive(on: DispatchQueue.main)
+            .sink { [weak diffableDataSource] (snapshot, mode) in
+                guard let diffableDataSource = diffableDataSource else { return }
+                switch mode {
+                case .normal:
+                    diffableDataSource.apply(
+                        snapshot.diffableDataSourceSnapshot, animatingDifferences: false)
+                case .animate:
+                    diffableDataSource.apply(
+                        snapshot.diffableDataSourceSnapshot, animatingDifferences: true)
+                case .reload:
+                    diffableDataSource.applySnapshotUsingReloadData(
+                        snapshot.diffableDataSourceSnapshot)
+                }
+            }.store(in: &cancellables)
+
         diffableDataSource.applySnapshotUsingReloadData(
             dataSource.snapshot().diffableDataSourceSnapshot
         )
@@ -87,7 +91,8 @@ where
         self.delegate = delegate
     }
 
-    public static func flow(
+    /// Flow init
+    required public convenience init(
         frame: CGRect,
         dataSource: LKFlatListDataSource<ItemIdentifier>,
         scrollDirection: LKListScrollDirection = LKListScrollDirection.vertical,
@@ -97,10 +102,10 @@ where
         header: LKListFlowHeader? = nil,
         footer: LKListFlowFooter? = nil,
         item: LKListFlowItem<ItemIdentifier>
-    ) -> LKFlatListView {
+    ) {
         let collectionViewLayout = UICollectionViewFlowLayout()
         collectionViewLayout.scrollDirection = scrollDirection
-        return LKFlatListView(
+        self.init(
             frame: frame,
             layout: collectionViewLayout,
             dataSource: dataSource,
@@ -119,7 +124,33 @@ where
         )
     }
 
-    public static func compositional(
+    /// Flow
+    public class func flow(
+        frame: CGRect,
+        dataSource: LKFlatListDataSource<ItemIdentifier>,
+        scrollDirection: LKListScrollDirection = LKListScrollDirection.vertical,
+        inset: LKListEdgeInsets? = nil,
+        mainAxisSpacing: LKListFloat? = nil,
+        crossAxisSpacing: LKListFloat? = nil,
+        header: LKListFlowHeader? = nil,
+        footer: LKListFlowFooter? = nil,
+        item: LKListFlowItem<ItemIdentifier>
+    ) -> Self {
+        return Self.init(
+            frame: frame,
+            dataSource: dataSource,
+            scrollDirection: scrollDirection,
+            inset: inset,
+            mainAxisSpacing: mainAxisSpacing,
+            crossAxisSpacing: crossAxisSpacing,
+            header: header,
+            footer: footer,
+            item: item
+        )
+    }
+
+    /// Compositional init
+    required public convenience init(
         frame: CGRect,
         dataSource: LKFlatListDataSource<ItemIdentifier>,
         scrollDirection: LKListScrollDirection = LKListScrollDirection.vertical,
@@ -127,7 +158,7 @@ where
         header: LKListCompositionalHeader? = nil,
         footer: LKListCompositionalFooter? = nil,
         item: LKListCompositionalItem<ItemIdentifier>
-    ) -> LKFlatListView {
+    ) {
         let configuration = UICollectionViewCompositionalLayoutConfiguration()
         configuration.scrollDirection = scrollDirection
         var boundarySupplementaryItems: [NSCollectionLayoutBoundarySupplementaryItem] = []
@@ -171,7 +202,7 @@ where
             )
         }
 
-        return LKFlatListView(
+        self.init(
             frame: frame,
             layout: layout,
             dataSource: dataSource,
@@ -180,5 +211,30 @@ where
             footer: footer,
             item: item
         )
+    }
+
+    // Compositional
+    public class func compositional(
+        frame: CGRect,
+        dataSource: LKFlatListDataSource<ItemIdentifier>,
+        scrollDirection: LKListScrollDirection = LKListScrollDirection.vertical,
+        inset: NSDirectionalEdgeInsets = .zero,
+        header: LKListCompositionalHeader? = nil,
+        footer: LKListCompositionalFooter? = nil,
+        item: LKListCompositionalItem<ItemIdentifier>
+    ) -> Self {
+        return Self.init(
+            frame: frame,
+            dataSource: dataSource,
+            scrollDirection: scrollDirection,
+            inset: inset,
+            header: header,
+            footer: footer,
+            item: item
+        )
+    }
+
+    deinit {
+        cancellables.removeAll()
     }
 }

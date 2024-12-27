@@ -65,6 +65,8 @@ class LKSectionListFlowPlayground: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .white
 
         dataSource = LKSectionListDataSource<Section, Item>()
         var snapshot = dataSource.snapshot()

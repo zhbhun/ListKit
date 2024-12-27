@@ -12,6 +12,7 @@ where
     SectionIdentifier: Hashable, SectionIdentifier: Sendable,
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
 {
+    public typealias Handler = () -> Void
     public typealias Checker = (
         _ listView: LKListView,
         _ indexPath: IndexPath,
@@ -38,6 +39,20 @@ where
         _ indexPath: IndexPath,
         _ sectionIdentifier: SectionIdentifier
     ) -> Void
+
+    private var layoutSubviewsHanlder: Handler?
+
+    public func onLayoutSubviews(_ handler: @escaping Handler) -> Self {
+        layoutSubviewsHanlder = handler
+        return self
+    }
+
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        layoutSubviewsHanlder?()
+    }
+
+    // MARK: - UIScrollViewDelegate
 
     public var shouldHighlightItemAt: Checker?
     public func onShouldHighlightItemAt(_ shouldHighlightItemAt: @escaping Checker)
@@ -119,4 +134,5 @@ where
         return self
     }
 
+    // MARK: - UIScrollViewDelegate
 }
