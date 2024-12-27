@@ -7,7 +7,6 @@
 //
 import UIKit
 
-@available(iOS 14.0, *)
 public class LKListFlowItem<ItemIdentifier>: LKListItem<ItemIdentifier>
 where
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
@@ -49,22 +48,7 @@ where
         ) -> Void
     ) where ItemView: LKListItemView {
         self.size = size
-        let registration = UICollectionView.CellRegistration<ItemView, ItemIdentifier> {
-            (itemView, indexPath, item) in
-            render(itemView, indexPath, item)
-        }
-        super.init {
-            (
-                _ listView: UICollectionView,
-                _ indexPath: IndexPath,
-                _ itemIdentifier: ItemIdentifier
-            ) -> UICollectionViewCell? in
-            return listView.dequeueConfiguredReusableCell(
-                using: registration,
-                for: indexPath,
-                item: itemIdentifier
-            )
-        }
+        super.init(render)
     }
 
     public init(

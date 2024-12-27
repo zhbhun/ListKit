@@ -8,7 +8,7 @@
 
 import UIKit
 
-@available(iOS 14.0, *)
+@available(iOS 13.0, *)
 public class LKListCompositionalItem<ItemIdentifier>: LKListItem<ItemIdentifier>
 where
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
@@ -34,7 +34,7 @@ where
     }
 }
 
-@available(iOS 14.0, *)
+@available(iOS 13.0, *)
 public class LKListCompositionalBlock<ItemIdentifier>: LKListCompositionalItem<ItemIdentifier>
 where
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
@@ -123,7 +123,7 @@ where
     }
 }
 
-@available(iOS 14.0, *)
+@available(iOS 13.0, *)
 public class LKListCompositionalCell<ItemIdentifier>: LKListCompositionalItem<ItemIdentifier>
 where
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
@@ -204,7 +204,7 @@ where
     }
 }
 
-@available(iOS 14.0, *)
+@available(iOS 13.0, *)
 public class LKListCompositionalGroup<ItemIdentifier>: LKListCompositionalItem<ItemIdentifier>
 where
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
@@ -276,7 +276,7 @@ where
     }
 }
 
-@available(iOS 14.0, *)
+@available(iOS 13.0, *)
 public class LKListCompositionalWaterfall<ItemIdentifier>: LKListCompositionalItem<ItemIdentifier>
 where
     ItemIdentifier: Hashable, ItemIdentifier: Sendable

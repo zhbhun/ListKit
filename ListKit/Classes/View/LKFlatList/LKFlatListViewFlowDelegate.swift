@@ -7,7 +7,7 @@
 //
 import UIKit
 
-@available(iOS 14.0, *)
+@available(iOS 13.0, *)
 public class LKFlatListViewFlowDelegate<ItemIdentifier>: LKFlatListViewDelegate<
     ItemIdentifier
 >,

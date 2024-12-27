@@ -8,7 +8,7 @@
 
 import UIKit
 
-@available(iOS 14.0, *)
+@available(iOS 13.0, *)
 public class LKListFlowSectionSupplementary<SectionIdentifier>: LKListSupplementary
 where
     SectionIdentifier: Hashable, SectionIdentifier: Sendable
@@ -33,23 +33,49 @@ where
     ) where SupplementaryView: LKListReusableView {
         self.size = size
         var lastSectionIdentifier: SectionIdentifier! = nil
-        let registration = UICollectionView.SupplementaryRegistration<SupplementaryView>(
-            elementKind: kind
-        ) { (supplementaryView, elementKind, indexPath) in
-            guard let sectionIdentifier = lastSectionIdentifier else { return }
-            render(supplementaryView, indexPath, sectionIdentifier)
-        }
-        self.sectionRender = {
-            (
-                _ listView: LKListView,
-                _ indexPath: IndexPath,
-                _ sectionIdentifier: SectionIdentifier
-            ) -> LKListReusableView? in
-            lastSectionIdentifier = sectionIdentifier
-            return listView.dequeueConfiguredReusableSupplementary(
-                using: registration,
-                for: indexPath
-            )
+        if #available(iOS 14.0, *) {
+            let registration = UICollectionView.SupplementaryRegistration<SupplementaryView>(
+                elementKind: kind
+            ) { (supplementaryView, elementKind, indexPath) in
+                guard let sectionIdentifier = lastSectionIdentifier else { return }
+                render(supplementaryView, indexPath, sectionIdentifier)
+            }
+            self.sectionRender = {
+                (
+                    _ listView: LKListView,
+                    _ indexPath: IndexPath,
+                    _ sectionIdentifier: SectionIdentifier
+                ) -> LKListReusableView? in
+                lastSectionIdentifier = sectionIdentifier
+                return listView.dequeueConfiguredReusableSupplementary(
+                    using: registration,
+                    for: indexPath
+                )
+            }
+        } else {
+            var registered = false
+            self.sectionRender = {
+                (
+                    _ listView: LKListView,
+                    _ indexPath: IndexPath,
+                    _ sectionIdentifier: SectionIdentifier
+                ) -> LKListReusableView? in
+                if !registered {
+                    registered = true
+                    listView.register(listSupplementaryView: SupplementaryView.self, kind: kind)
+                }
+                guard
+                    let supplementaryView = listView.dequeueReusableSupplementaryView(
+                        ofKind: kind,
+                        withReuseIdentifier: "\(SupplementaryView.self.hash())",
+                        for: indexPath
+                    ) as? SupplementaryView
+                else {
+                    return .init()
+                }
+                render(supplementaryView, indexPath, sectionIdentifier)
+                return supplementaryView
+            }
         }
         super.init()
     }
@@ -61,7 +87,7 @@ where
     }
 }
 
-@available(iOS 14.0, *)
+@available(iOS 13.0, *)
 public class LKListFlowSectionHeader<SectionIdentifier>: LKListFlowSectionSupplementary<
     SectionIdentifier
 >
@@ -84,7 +110,7 @@ where
     }
 }
 
-@available(iOS 14.0, *)
+@available(iOS 13.0, *)
 public class LKListFlowSectionFooter<SectionIdentifier>: LKListFlowSectionSupplementary<
     SectionIdentifier
 >

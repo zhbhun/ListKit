@@ -7,7 +7,7 @@
 //
 import UIKit
 
-@available(iOS 14.0, *)
+@available(iOS 13.0, *)
 public class LKListCompositionalSupplementary: LKListSupplementary {
     public let kind: String
 
@@ -16,22 +16,51 @@ public class LKListCompositionalSupplementary: LKListSupplementary {
         render: @escaping (_ supplementaryView: SupplementaryView, _ indexPath: IndexPath) -> Void
     ) where SupplementaryView: LKListReusableView {
         self.kind = kind
-        let registration = UICollectionView.SupplementaryRegistration<SupplementaryView>(
-            elementKind: kind
-        ) { (supplementaryView, elementKind, indexPath) in
-            render(supplementaryView, indexPath)
+        if #available(iOS 14.0, *) {
+            let registration = UICollectionView.SupplementaryRegistration<SupplementaryView>(
+                elementKind: kind
+            ) { (supplementaryView, elementKind, indexPath) in
+                render(supplementaryView, indexPath)
+            }
+            super.init {
+                (
+                    _ listView: UICollectionView,
+                    _ indexPath: IndexPath
+                ) -> LKListReusableView? in
+                return listView.dequeueConfiguredReusableSupplementary(
+                    using: registration,
+                    for: indexPath
+                )
+            }
+        } else {
+            var registered = false
+            super.init {
+                (
+                    _ listView: LKListView,
+                    _ indexPath: IndexPath
+                ) -> LKListReusableView? in
+                if !registered {
+                    registered = true
+                    listView.register(listSupplementaryView: SupplementaryView.self, kind: kind)
+                }
+                guard
+                    let supplementaryView = listView.dequeueReusableSupplementaryView(
+                        ofKind: kind,
+                        withReuseIdentifier: "\(SupplementaryView.self.hash())",
+                        for: indexPath
+                    ) as? SupplementaryView
+                else {
+                    return .init()
+                }
+                render(supplementaryView, indexPath)
+                return supplementaryView
+            }
         }
-        super.init {
-            (_ listView: UICollectionView, _ indexPath: IndexPath) -> LKListReusableView? in
-            return listView.dequeueConfiguredReusableSupplementary(
-                using: registration,
-                for: indexPath
-            )
-        }
+
     }
 }
 
-@available(iOS 14.0, *)
+@available(iOS 13.0, *)
 public class LKCompositionalBoundarySupplementary: LKListCompositionalSupplementary {
     public let size: LKListCompositionalDimension
     public let contentInsets: NSDirectionalEdgeInsets?
@@ -79,7 +108,7 @@ public class LKCompositionalBoundarySupplementary: LKListCompositionalSupplement
     }
 }
 
-@available(iOS 14.0, *)
+@available(iOS 13.0, *)
 public class LKListCompositionalHeader: LKCompositionalBoundarySupplementary {
     public init<SupplementaryView>(
         size: LKListCompositionalDimension,
@@ -102,7 +131,7 @@ public class LKListCompositionalHeader: LKCompositionalBoundarySupplementary {
     }
 }
 
-@available(iOS 14.0, *)
+@available(iOS 13.0, *)
 public class LKListCompositionalFooter: LKCompositionalBoundarySupplementary {
     public init<SupplementaryView>(
         size: LKListCompositionalDimension,

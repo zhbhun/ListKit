@@ -8,7 +8,7 @@
 import Combine
 import UIKit
 
-@available(iOS 14.0, *)
+@available(iOS 13.0, *)
 public class LKFlatListView<ItemIdentifier>: LKListBaseView<Int, ItemIdentifier>
 where
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
