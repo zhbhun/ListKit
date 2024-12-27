@@ -3,10 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20B508BE2D1EFBDC0098D4AA /* LKFlatListCellPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B508B92D1EFBDC0098D4AA /* LKFlatListCellPlayground.swift */; };
+		20B508BF2D1EFBDC0098D4AA /* LKSectionListFlowPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B508BC2D1EFBDC0098D4AA /* LKSectionListFlowPlayground.swift */; };
+		20B508C02D1EFBDC0098D4AA /* LKFlatListWaterfallPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B508BA2D1EFBDC0098D4AA /* LKFlatListWaterfallPlayground.swift */; };
+		20B508C12D1EFBDC0098D4AA /* LKFlatListBlockPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B508B82D1EFBDC0098D4AA /* LKFlatListBlockPlayground.swift */; };
+		20B508C22D1EFBDC0098D4AA /* LKSectionListCompositionalPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B508BB2D1EFBDC0098D4AA /* LKSectionListCompositionalPlayground.swift */; };
+		20B508C32D1EFBDC0098D4AA /* LKTabPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B508BD2D1EFBDC0098D4AA /* LKTabPlayground.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -29,6 +35,12 @@
 /* Begin PBXFileReference section */
 		153DBD6D99D7165C79384D67 /* Pods-ListKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-ListKit_Example/Pods-ListKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		192D7B721BCE0242A0913FEA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		20B508B82D1EFBDC0098D4AA /* LKFlatListBlockPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKFlatListBlockPlayground.swift; sourceTree = "<group>"; };
+		20B508B92D1EFBDC0098D4AA /* LKFlatListCellPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKFlatListCellPlayground.swift; sourceTree = "<group>"; };
+		20B508BA2D1EFBDC0098D4AA /* LKFlatListWaterfallPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKFlatListWaterfallPlayground.swift; sourceTree = "<group>"; };
+		20B508BB2D1EFBDC0098D4AA /* LKSectionListCompositionalPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKSectionListCompositionalPlayground.swift; sourceTree = "<group>"; };
+		20B508BC2D1EFBDC0098D4AA /* LKSectionListFlowPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKSectionListFlowPlayground.swift; sourceTree = "<group>"; };
+		20B508BD2D1EFBDC0098D4AA /* LKTabPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKTabPlayground.swift; sourceTree = "<group>"; };
 		2F396231AD0A8C9D544C869A /* Pods_ListKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4DB4DCF42B055F837CA7B8 /* ListKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ListKit.podspec; path = ../ListKit.podspec; sourceTree = "<group>"; };
 		53EEF627C29926AB40210F63 /* Pods-ListKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListKit_Example.release.xcconfig"; path = "Target Support Files/Pods-ListKit_Example/Pods-ListKit_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -46,11 +58,6 @@
 		A9A08898794F2A21FC55A8FD /* Pods-ListKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListKit_Tests.release.xcconfig"; path = "Target Support Files/Pods-ListKit_Tests/Pods-ListKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C53F80631DE4A4BC60ED07D2 /* Pods-ListKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-ListKit_Tests/Pods-ListKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		209E221C2D07C3030085A28F /* ListKit */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ListKit; sourceTree = "<group>"; };
-		20BB6BED2D0C0896002E5053 /* Demo */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Demo; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		607FACCD1AFB9204008FA782 /* Frameworks */ = {
@@ -72,6 +79,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20B508C42D1EFBF00098D4AA /* Playground */ = {
+			isa = PBXGroup;
+			children = (
+				20B508B82D1EFBDC0098D4AA /* LKFlatListBlockPlayground.swift */,
+				20B508B92D1EFBDC0098D4AA /* LKFlatListCellPlayground.swift */,
+				20B508BA2D1EFBDC0098D4AA /* LKFlatListWaterfallPlayground.swift */,
+				20B508BB2D1EFBDC0098D4AA /* LKSectionListCompositionalPlayground.swift */,
+				20B508BC2D1EFBDC0098D4AA /* LKSectionListFlowPlayground.swift */,
+				20B508BD2D1EFBDC0098D4AA /* LKTabPlayground.swift */,
+			);
+			path = Playground;
+			sourceTree = "<group>";
+		};
 		4DEFA42E115655033ECA789D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,8 +125,7 @@
 		607FACD21AFB9204008FA782 /* Example for ListKit */ = {
 			isa = PBXGroup;
 			children = (
-				20BB6BED2D0C0896002E5053 /* Demo */,
-				209E221C2D07C3030085A28F /* ListKit */,
+				20B508C42D1EFBF00098D4AA /* Playground */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -180,10 +199,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				209E221C2D07C3030085A28F /* ListKit */,
-				20BB6BED2D0C0896002E5053 /* Demo */,
-			);
 			name = ListKit_Example;
 			productName = ListKit;
 			productReference = 607FACD01AFB9204008FA782 /* ListKit_Example.app */;
@@ -220,10 +235,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = N5SV4L4EVC;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = N5SV4L4EVC;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -339,6 +356,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				20B508BE2D1EFBDC0098D4AA /* LKFlatListCellPlayground.swift in Sources */,
+				20B508BF2D1EFBDC0098D4AA /* LKSectionListFlowPlayground.swift in Sources */,
+				20B508C02D1EFBDC0098D4AA /* LKFlatListWaterfallPlayground.swift in Sources */,
+				20B508C12D1EFBDC0098D4AA /* LKFlatListBlockPlayground.swift in Sources */,
+				20B508C22D1EFBDC0098D4AA /* LKSectionListCompositionalPlayground.swift in Sources */,
+				20B508C32D1EFBDC0098D4AA /* LKTabPlayground.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,8 +491,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -483,10 +505,7 @@
 				DEVELOPMENT_TEAM = N5SV4L4EVC;
 				INFOPLIST_FILE = ListKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "com.zhbhun.demo.ListKit-Example";
@@ -504,10 +523,7 @@
 				DEVELOPMENT_TEAM = N5SV4L4EVC;
 				INFOPLIST_FILE = ListKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "com.zhbhun.demo.ListKit-Example";
@@ -532,11 +548,7 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "com.zhbhun.ListKit-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -557,11 +569,7 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "com.zhbhun.ListKit-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
