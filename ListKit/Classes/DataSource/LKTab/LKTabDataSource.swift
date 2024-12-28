@@ -9,7 +9,7 @@ import Combine
 import Dispatch
 
 @available(iOS 13.0, *)
-public class LKTabDataSource<ItemIdentifierType>: LKFlatListDataSource<ItemIdentifierType>
+open class LKTabDataSource<ItemIdentifierType>: LKFlatListDataSource<ItemIdentifierType>
 where
     ItemIdentifierType: Hashable, ItemIdentifierType: Sendable
 {

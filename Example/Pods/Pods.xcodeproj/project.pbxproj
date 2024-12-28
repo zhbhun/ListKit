@@ -14,7 +14,6 @@
 		34F62C42EB0652BED0D22FD56428DFAD /* LKListFlowSectionSupplementary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A559DC91956A7BD593C51B1D8F3A7CB /* LKListFlowSectionSupplementary.swift */; };
 		35E963D15D4571FF9DEE9F8E3538B80F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
 		38EDBF4D8F0A082FD70EA084107A9B8B /* Pods-ListKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B379CAF86CF535CB59471159AC45C9B8 /* Pods-ListKit_Tests-dummy.m */; };
-		3E02EFD81F706A9DA086BA8320568DFC /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373647FE0F5A2AFDC47FA9377A76AEF6 /* ReplaceMe.swift */; };
 		4581B108FF68A5A1A83DD2A626234332 /* LKTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169F6324FB8DD5C611F887A265757FC4 /* LKTabBar.swift */; };
 		5D5D7C6C1D63172D538EA72C99D8B0E9 /* LKListReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C14BCDF0F41A62C2DCD22292E46C51 /* LKListReusableView.swift */; };
 		5DB11C0DDA952FEB217E1045A902D7E6 /* LKFlatListViewFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B351F3C9586EE648D2A956F3F837194A /* LKFlatListViewFlowDelegate.swift */; };
@@ -84,17 +83,16 @@
 		0FFC7A4F1AEBB8D27415679931F3481D /* LKFlatListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKFlatListView.swift; sourceTree = "<group>"; };
 		169F6324FB8DD5C611F887A265757FC4 /* LKTabBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKTabBar.swift; sourceTree = "<group>"; };
 		19E49E47857B42DB87090B057EA4F28A /* LKTabDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKTabDataSource.swift; sourceTree = "<group>"; };
-		1A44131DEEC3F26E483C0CEC17120876 /* ListKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ListKit; path = ListKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A44131DEEC3F26E483C0CEC17120876 /* ListKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ListKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A559DC91956A7BD593C51B1D8F3A7CB /* LKListFlowSectionSupplementary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKListFlowSectionSupplementary.swift; sourceTree = "<group>"; };
 		1C64D61DA03F37F6FAD4F0624AAF9EF5 /* Pods-ListKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ListKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		2052D30B062ACDF51AB5F969296C7B56 /* LKTabLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKTabLabel.swift; sourceTree = "<group>"; };
 		209CA8779DFAC95DFFCCDBD084A31BEC /* LKSectionListViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKSectionListViewDelegate.swift; sourceTree = "<group>"; };
-		22706807DA63569D1C973E96EEE082AF /* ListKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = ListKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		22706807DA63569D1C973E96EEE082AF /* ListKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = ListKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2A23567F97DAE9A4E90B2E9FD2ED4112 /* LKListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKListView.swift; sourceTree = "<group>"; };
 		2DF6EDB1996E771C22ED72C0730B3B11 /* Pods-ListKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ListKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		34B9228F37111A13665404CDE908D14E /* LKListResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKListResolver.swift; sourceTree = "<group>"; };
 		361068BFBBA5065D8CDD9EC66114A8DD /* Pods-ListKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ListKit_Example-umbrella.h"; sourceTree = "<group>"; };
-		373647FE0F5A2AFDC47FA9377A76AEF6 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = ListKit/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
 		384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3CAFE766F7EFE441525ACC4F83BB3D57 /* LKSectionListDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKSectionListDataSource.swift; sourceTree = "<group>"; };
 		3EF75C783838030855E1256866AF7FF7 /* LKListFlowSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKListFlowSection.swift; sourceTree = "<group>"; };
@@ -104,16 +102,16 @@
 		4CBC5A646A0E20AD2640FC856AF7688E /* LKFlatListDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKFlatListDataSource.swift; sourceTree = "<group>"; };
 		4E4E5A4ADD98E4475CBDDE0CDCD46ED2 /* ListKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ListKit.release.xcconfig; sourceTree = "<group>"; };
 		530D9347E08E47E23D1888025162F275 /* LKSectionListViewFlowDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKSectionListViewFlowDelegate.swift; sourceTree = "<group>"; };
-		55A625E37E858BFB7DDBAA9EE8C74E59 /* Pods-ListKit_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-ListKit_Example"; path = Pods_ListKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55A625E37E858BFB7DDBAA9EE8C74E59 /* Pods_ListKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		576A08BA1ADB6B07EB5F4DB2E05983C2 /* Pods-ListKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ListKit_Tests-umbrella.h"; sourceTree = "<group>"; };
 		57ECBAABA608CC9C80BA44F4789229E5 /* LKListScrollDirection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKListScrollDirection.swift; sourceTree = "<group>"; };
 		607A578F82A9CF25D84F79F509707C2E /* LKListDataSnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKListDataSnapshot.swift; sourceTree = "<group>"; };
 		62846644F3DBAE06F8AC23C4BFDC1F40 /* LKSectionListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKSectionListView.swift; sourceTree = "<group>"; };
 		6ADC8144D4B3AA6BC5A24A9BAB6F7D0F /* LKListCompositionalSupplementary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKListCompositionalSupplementary.swift; sourceTree = "<group>"; };
 		6B8951837CE4CAE63B8838BB7EE6CDF5 /* ListKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ListKit-prefix.pch"; sourceTree = "<group>"; };
-		6C4BA897BE938D3749D89754C467E921 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		6C4BA897BE938D3749D89754C467E921 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		6DEBA9817CF6897CF22AA90543A94375 /* Pods-ListKit_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ListKit_Example-Info.plist"; sourceTree = "<group>"; };
-		7168BB6E7BD9BC2A544D2E13CFBB737F /* Pods-ListKit_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-ListKit_Tests"; path = Pods_ListKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7168BB6E7BD9BC2A544D2E13CFBB737F /* Pods_ListKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7867F79E02425A6455C6139DB4FD9BC8 /* LKSectionListDataSnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKSectionListDataSnapshot.swift; sourceTree = "<group>"; };
 		79183C71FCD8AF4D556C97B45EE3B784 /* Pods-ListKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ListKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		7E0C72DC519D2173724FA7E0A3D4856D /* Pods-ListKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ListKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -123,7 +121,7 @@
 		89513DC1CB233DA3DBCDD2E919DD716E /* ListKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ListKit-umbrella.h"; sourceTree = "<group>"; };
 		8E4EC7F42EAD04F42326263D05C29AA2 /* LKListCompositionalSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKListCompositionalSection.swift; sourceTree = "<group>"; };
 		99C14BCDF0F41A62C2DCD22292E46C51 /* LKListReusableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKListReusableView.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A2B86B7C84E40E98CF311DD86C558AF5 /* LKListBaseView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKListBaseView.swift; sourceTree = "<group>"; };
 		A6EA6DCC387EEA1F080E412AD6F7B235 /* Pods-ListKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ListKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		ADF12A1E18EBE6B5FE3D5952739F10BA /* LKListCompositionalDimension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKListCompositionalDimension.swift; sourceTree = "<group>"; };
@@ -142,7 +140,7 @@
 		D8FBF1FE7D68A6DA1C34341EFEEB4193 /* ListKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ListKit-dummy.m"; sourceTree = "<group>"; };
 		D90F8E1EFF9CE64E5A4B71EB8174A0D9 /* ListKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ListKit.debug.xcconfig; sourceTree = "<group>"; };
 		DA82E89E8F8FDE8C7BA1C70FB561D90D /* Pods-ListKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ListKit_Example-dummy.m"; sourceTree = "<group>"; };
-		DE0B6950491F7DE51EAB9676EDE69B8F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		DE0B6950491F7DE51EAB9676EDE69B8F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E70ABA3223A077B32ABA7AC9AD594654 /* ListKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ListKit.modulemap; sourceTree = "<group>"; };
 		EB7B053A9E049EBC04D6BFA22F06D163 /* Pods-ListKit_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ListKit_Tests-Info.plist"; sourceTree = "<group>"; };
 		EC587008A724246186E8D7DCF0FA1092 /* LKListSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LKListSection.swift; sourceTree = "<group>"; };
@@ -212,7 +210,6 @@
 				EC587008A724246186E8D7DCF0FA1092 /* LKListSection.swift */,
 				FDD5301C46DAFD31003C17A1437272C0 /* LKListSupplementary.swift */,
 			);
-			name = LKList;
 			path = LKList;
 			sourceTree = "<group>";
 		};
@@ -222,7 +219,6 @@
 				B06FB79FD35247D1C4305E78EA8F1C9B /* LKListItemView.swift */,
 				99C14BCDF0F41A62C2DCD22292E46C51 /* LKListReusableView.swift */,
 			);
-			name = LKListItem;
 			path = LKListItem;
 			sourceTree = "<group>";
 		};
@@ -245,7 +241,6 @@
 				209CA8779DFAC95DFFCCDBD084A31BEC /* LKSectionListViewDelegate.swift */,
 				530D9347E08E47E23D1888025162F275 /* LKSectionListViewFlowDelegate.swift */,
 			);
-			name = LKSectionList;
 			path = LKSectionList;
 			sourceTree = "<group>";
 		};
@@ -256,14 +251,12 @@
 				D3B183A82F627E5066CA11AB986AB4B8 /* LKFlatListViewDelegate.swift */,
 				B351F3C9586EE648D2A956F3F837194A /* LKFlatListViewFlowDelegate.swift */,
 			);
-			name = LKFlatList;
 			path = LKFlatList;
 			sourceTree = "<group>";
 		};
 		604B2AF947874E1FC25E5A761AE5BD96 /* ListKit */ = {
 			isa = PBXGroup;
 			children = (
-				373647FE0F5A2AFDC47FA9377A76AEF6 /* ReplaceMe.swift */,
 				4EB34E6BE6868F884E559F129C7B1263 /* DataSource */,
 				C40BD75A8505A597E3C1B97CB1CE8BE9 /* Layout */,
 				C52E21AE8CCB4D49AFE9E2AD01E62305 /* Pod */,
@@ -297,7 +290,6 @@
 				2052D30B062ACDF51AB5F969296C7B56 /* LKTabLabel.swift */,
 				D4F68137DC7F1E329DF5FB3865FACB8D /* LKTabView.swift */,
 			);
-			name = LKTab;
 			path = LKTab;
 			sourceTree = "<group>";
 		};
@@ -307,7 +299,6 @@
 				826A802E0C8596789E56CCEE8C45CDAE /* LKTabDataSnapshot.swift */,
 				19E49E47857B42DB87090B057EA4F28A /* LKTabDataSource.swift */,
 			);
-			name = LKTab;
 			path = LKTab;
 			sourceTree = "<group>";
 		};
@@ -319,7 +310,6 @@
 				1A559DC91956A7BD593C51B1D8F3A7CB /* LKListFlowSectionSupplementary.swift */,
 				C043F5D120708B63F929ED8EF13C4669 /* LKListFlowSupplementary.swift */,
 			);
-			name = LKListFlow;
 			path = LKListFlow;
 			sourceTree = "<group>";
 		};
@@ -330,7 +320,6 @@
 				607A578F82A9CF25D84F79F509707C2E /* LKListDataSnapshot.swift */,
 				FB189C07BF39ED81ABDF76BDB08AC39D /* LKListDataSource.swift */,
 			);
-			name = LKList;
 			path = LKList;
 			sourceTree = "<group>";
 		};
@@ -340,7 +329,6 @@
 				7867F79E02425A6455C6139DB4FD9BC8 /* LKSectionListDataSnapshot.swift */,
 				3CAFE766F7EFE441525ACC4F83BB3D57 /* LKSectionListDataSource.swift */,
 			);
-			name = LKSectionList;
 			path = LKSectionList;
 			sourceTree = "<group>";
 		};
@@ -352,7 +340,6 @@
 				EE2F9419F3ABEDB78F51BB4809E1573F /* LKListCompositionalSectionSupplementary.swift */,
 				6ADC8144D4B3AA6BC5A24A9BAB6F7D0F /* LKListCompositionalSupplementary.swift */,
 			);
-			name = LKListCompositional;
 			path = LKListCompositional;
 			sourceTree = "<group>";
 		};
@@ -392,7 +379,6 @@
 				B101400DC1E124146670DFE96ACDFBE8 /* LKFlatListDataSnapshot.swift */,
 				4CBC5A646A0E20AD2640FC856AF7688E /* LKFlatListDataSource.swift */,
 			);
-			name = LKFlatList;
 			path = LKFlatList;
 			sourceTree = "<group>";
 		};
@@ -426,9 +412,9 @@
 		F0389DAFCD3ABC03EEF9A58B290279F7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1A44131DEEC3F26E483C0CEC17120876 /* ListKit */,
-				55A625E37E858BFB7DDBAA9EE8C74E59 /* Pods-ListKit_Example */,
-				7168BB6E7BD9BC2A544D2E13CFBB737F /* Pods-ListKit_Tests */,
+				1A44131DEEC3F26E483C0CEC17120876 /* ListKit.framework */,
+				55A625E37E858BFB7DDBAA9EE8C74E59 /* Pods_ListKit_Example.framework */,
+				7168BB6E7BD9BC2A544D2E13CFBB737F /* Pods_ListKit_Tests.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -486,7 +472,6 @@
 				2A23567F97DAE9A4E90B2E9FD2ED4112 /* LKListView.swift */,
 				462DDA48A59745E2223CB995C6A4F116 /* LKListViewDelegate.swift */,
 			);
-			name = LKLIst;
 			path = LKLIst;
 			sourceTree = "<group>";
 		};
@@ -536,7 +521,7 @@
 			);
 			name = "Pods-ListKit_Example";
 			productName = Pods_ListKit_Example;
-			productReference = 55A625E37E858BFB7DDBAA9EE8C74E59 /* Pods-ListKit_Example */;
+			productReference = 55A625E37E858BFB7DDBAA9EE8C74E59 /* Pods_ListKit_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		DFE8F60BE27748E816823D9885D6080E /* Pods-ListKit_Tests */ = {
@@ -555,7 +540,7 @@
 			);
 			name = "Pods-ListKit_Tests";
 			productName = Pods_ListKit_Tests;
-			productReference = 7168BB6E7BD9BC2A544D2E13CFBB737F /* Pods-ListKit_Tests */;
+			productReference = 7168BB6E7BD9BC2A544D2E13CFBB737F /* Pods_ListKit_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		FB1478CDBE8E6F06BBAFE681B59EF04B /* ListKit */ = {
@@ -573,7 +558,7 @@
 			);
 			name = ListKit;
 			productName = ListKit;
-			productReference = 1A44131DEEC3F26E483C0CEC17120876 /* ListKit */;
+			productReference = 1A44131DEEC3F26E483C0CEC17120876 /* ListKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -594,8 +579,6 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			minimizedProjectReferenceProxies = 0;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = F0389DAFCD3ABC03EEF9A58B290279F7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -694,7 +677,6 @@
 				FA78ECF1A1A85F7F4EFE2894711D4A42 /* LKTabDataSource.swift in Sources */,
 				759CE28B094E3624059146417348AA47 /* LKTabLabel.swift in Sources */,
 				8C2CF3B25FFF967DAB31A665EA7508DF /* LKTabView.swift in Sources */,
-				3E02EFD81F706A9DA086BA8320568DFC /* ReplaceMe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1020,8 +1002,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

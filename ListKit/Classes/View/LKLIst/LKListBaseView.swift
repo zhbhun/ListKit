@@ -47,7 +47,7 @@ where
         return self
     }
 
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         layoutSubviewsHanlder?()
     }

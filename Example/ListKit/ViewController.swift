@@ -70,7 +70,12 @@ class ViewController: UIViewController {
                 id: UUID(),
                 title: "LKTab",
                 factory: { LKTabPlayground() }
-            )
+            ),
+            Item(
+                id: UUID(),
+                title: "News",
+                factory: { NewsHomeController() }
+            ),
         ])
         dataSource.apply(snapshot, mode: .reload)
 

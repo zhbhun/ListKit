@@ -9,7 +9,7 @@ import Combine
 import UIKit
 
 @available(iOS 13.0, *)
-public class LKFlatListView<ItemIdentifier>: LKListBaseView<Int, ItemIdentifier>
+open class LKFlatListView<ItemIdentifier>: LKListBaseView<Int, ItemIdentifier>
 where
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
 {
@@ -17,7 +17,7 @@ where
     private var listDelegate: LKListViewDelegate<Int, ItemIdentifier>!
     private var cancellables = Set<AnyCancellable>()
 
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -112,7 +112,7 @@ where
     }
 
     /// Flow init
-    required public convenience init(
+    public init(
         frame: CGRect,
         dataSource: LKFlatListDataSource<ItemIdentifier>,
         scrollDirection: LKListScrollDirection = LKListScrollDirection.vertical,
@@ -125,11 +125,16 @@ where
     ) {
         let collectionViewLayout = UICollectionViewFlowLayout()
         collectionViewLayout.scrollDirection = scrollDirection
-        self.init(
-            frame: frame,
-            layout: collectionViewLayout,
+        super.init(frame: frame, collectionViewLayout: collectionViewLayout)
+        backgroundColor = nil
+        self.initDataSource(
             dataSource: dataSource,
-            delegate: LKFlatListViewFlowDelegate(
+            header: header,
+            footer: footer,
+            item: item
+        )
+        self.initDelegate(
+            LKFlatListViewFlowDelegate(
                 dataSource: dataSource,
                 inset: inset,
                 mainAxisSpacing: mainAxisSpacing,
@@ -137,10 +142,7 @@ where
                 header: header,
                 footer: footer,
                 item: item
-            ),
-            header: header,
-            footer: footer,
-            item: item
+            )
         )
     }
 
@@ -155,8 +157,8 @@ where
         header: LKListFlowHeader? = nil,
         footer: LKListFlowFooter? = nil,
         item: LKListFlowItem<ItemIdentifier>
-    ) -> Self {
-        return Self.init(
+    ) -> LKFlatListView<ItemIdentifier> {
+        return LKFlatListView<ItemIdentifier>(
             frame: frame,
             dataSource: dataSource,
             scrollDirection: scrollDirection,
@@ -170,7 +172,7 @@ where
     }
 
     /// Compositional init
-    required public convenience init(
+    public init(
         frame: CGRect,
         dataSource: LKFlatListDataSource<ItemIdentifier>,
         scrollDirection: LKListScrollDirection = LKListScrollDirection.vertical,
@@ -222,11 +224,11 @@ where
             )
         }
 
-        self.init(
-            frame: frame,
-            layout: layout,
+        // create
+        super.init(frame: frame, collectionViewLayout: layout)
+        backgroundColor = nil
+        self.initDataSource(
             dataSource: dataSource,
-            delegate: LKFlatListViewDelegate(dataSource: dataSource),
             header: header,
             footer: footer,
             item: item
@@ -234,7 +236,7 @@ where
     }
 
     // Compositional
-    public class func compositional(
+    public static func compositional(
         frame: CGRect,
         dataSource: LKFlatListDataSource<ItemIdentifier>,
         scrollDirection: LKListScrollDirection = LKListScrollDirection.vertical,
@@ -242,8 +244,8 @@ where
         header: LKListCompositionalHeader? = nil,
         footer: LKListCompositionalFooter? = nil,
         item: LKListCompositionalItem<ItemIdentifier>
-    ) -> Self {
-        return Self.init(
+    ) -> LKFlatListView<ItemIdentifier> {
+        return LKFlatListView<ItemIdentifier>(
             frame: frame,
             dataSource: dataSource,
             scrollDirection: scrollDirection,
