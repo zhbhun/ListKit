@@ -1,6 +1,5 @@
 # ListKit
 
-[![CI Status](https://img.shields.io/travis/zhbhun/ListKit.svg?style=flat)](https://travis-ci.org/zhbhun/ListKit)
 [![Version](https://img.shields.io/cocoapods/v/ListKit.svg?style=flat)](https://cocoapods.org/pods/ListKit)
 [![License](https://img.shields.io/cocoapods/l/ListKit.svg?style=flat)](https://cocoapods.org/pods/ListKit)
 [![Platform](https://img.shields.io/cocoapods/p/ListKit.svg?style=flat)](https://cocoapods.org/pods/ListKit)
@@ -10,6 +9,8 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+
+iOS 13.*
 
 ## Installation
 
