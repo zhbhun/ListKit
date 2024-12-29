@@ -38,8 +38,8 @@ pod 'ListKit'
 
 ## 文档
 
-- [API](./docs/apis/README.md)
-- [Guides](./docs/guides/README.md)
+- [API](https://listkit.pages.dev/documentation/listkit)
+- [Guides](./docs/guides/zh/README.md)
 
 ## 快速上手
 
@@ -129,6 +129,32 @@ pod 'ListKit'
 ## 最佳实践
 
 - [News Feeds](./Example/ListKit/Application/NewsHomeController.swift)：一个带分类页签切换的资讯信息流
+- ...
+
+## 计划（背景）
+
+> 我本是一名前端开发，最近因业务需要在使用 Swift 和 UIKit 开发 iOS 应用，期间遇到现有项目中大量使用了协议或代理的方式来实现一些扩展逻辑，让我在开发初期增加了不少代码理解成本。虽然现在我已经渐渐适应这套开发方式，但我还是想尝试下参照前端的编程方式。尽量地优先使用闭包，并以数据驱动和声明式的方式来实现功能，试验看看是否能让代码变得更清晰些。
+
+目前这个项目还在试验中，API 可能会有较为频繁的变动，如果要在生产中使用请谨慎考虑。
+
+UICollectionView 通过代理扩展，可以非常灵活地满足各类场景需求。但是 UICollectionView API 实在过于底层，它繁琐的代理实现，让开发者要实现多个代理方法，导致代码冗长且分散。下面是个人在使用 UICollectionView 觉得不顺手的地方，这也是 ListKit 未来需要包装 UICollectionView 后要解决的问题。
+
+1. UICollectionView cell 的视图构造和大小设置是分散在 UICollectionViewDataSource 和 UICollectionViewDelegateFlowLayout 这两个代理下的，而不是直接通过一个配置化的 Cell 让视图构造和样式配置聚合在一起维护。
+2. UICollectionViewFlowLayout 既能在自身上设置固定的值，又可以在 UICollectionViewDelegateFlowLayout 代理上动态设置，而不是直接在 UICollectionViewFlowLayout 上配置一个闭包直接实现动态值，增加开发者代码理解和维护成本。
+3. UICollectionViewDataSource 是一个非常底层的协议，需要用户自行实现一套数据管理方式。虽然现在有提供 UICollectionViewDiffableDataSource，但是由于需要负责 CellView 等视图的构造，无法将数据管理逻辑从视图中抽离出来，实现数据驱动的开发方式（把 UICollectionView 数据源管理作为 ViewModel 来维护）。
+4. ...
+
+目前，ListKit 对于刚接触的人来说熟悉成本并不会比 UICollectionView 低，其中主要的原因是为了实现声明式的开发方式，引入了许多配置类。但上手后，个人觉得代码可读性和可维护性会比 UICollectionView 好很多。
+
+唠叨完背景后，说说接下来待完成的工作计划。
+
+- [ ] 参照前端的组件库文档（[Ant Design](https://ant.design/components/table-cn) ）编写 ListKit 的使用说明文档
+
+    ps：😭前端这块文档真的比 iOS 生态好太多了，之前还因为这个问题想基于 AI 生成 Cheatsheet 文档 —— https://cheatsheet-2i7.pages.dev/swift/
+
+- [ ] 内置提供无限滚动列表的实现（开发者只需要提供好数据请求函数即可）
+- [ ] 满足一些特殊场景的嵌套滚动功能，例如：多页签顶部还有可滚动内容的交互
+- [ ] 实践一个能用并收集反馈意见，持续优化 API，以及修复相关 bug
 
 ## License
 
