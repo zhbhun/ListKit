@@ -9,38 +9,51 @@ import Combine
 import Dispatch
 import UIKit
 
+/// A custom tab bar class that inherits from `UIView`.
+///
+/// `LKTabBar` is a generic class that can be used to create a tab bar with custom item identifiers.
+///
+/// - Parameters:
+///   - ItemIdentifier: The type of the item identifiers used in the tab bar.
 @available(iOS 13.0, *)
 public class LKTabBar<ItemIdentifier>: UIView
 where
     ItemIdentifier: Hashable, ItemIdentifier: Sendable
 {
     public let dataSource: LKTabDataSource<ItemIdentifier>
+    /// The color of the indicator.
     public var indicatorColor: UIColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1) {
         didSet {
             indicator.backgroundColor = indicatorColor
         }
     }
+    /// The weight of the indicator in the tab bar.
     public var indicatorWeight: Double = 2 {
         didSet {
             updateIndicator()
         }
     }
+    /// The size of the indicator. If set to `nil`, the default size will be used.
     public var indicatorSize: Double? = nil {
         didSet {
             updateIndicator()
         }
     }
+    /// The radius of the indicator.
     public var inidcatorRadius: Double = 1 {
         didSet {
             indicator.layer.cornerRadius = inidcatorRadius
         }
     }
+    /// The duration of the indicator animation in seconds.
     public var indicatorAnimationDuration: Double = 0.2
+    /// The color of the divider in the tab bar.
     public var dividerColor: UIColor = UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1) {
         didSet {
             divider.backgroundColor = dividerColor
         }
     }
+    /// The weight of the divider.
     public var dividerWeight: Double? = nil {
         didSet {
             dividerHeightConstraint?.constant = dividerWeight ?? (1.0 / UIScreen.main.scale)
@@ -59,7 +72,18 @@ where
         fatalError("init(coder:) has not been implemented")
     }
 
-    // TODO: change to mutable property
+    /// Initializes a new instance of the tab bar with the specified parameters.
+    ///
+    /// - Parameters:
+    ///   - dataSource: The data source that provides the items for the tab bar.
+    ///   - inset: The edge insets for the tab bar. Default value is `.init(top: 6, leading: 16, bottom: 6, trailing: 16)`.
+    ///   - spacing: The spacing between items in the tab bar. Default value is `20`.
+    ///   - size: The size of the items in the tab bar. Default value is `.estimated(0)`.
+    ///   - render: A closure that renders the label view for each item in the tab bar.
+    ///     - label: The label view to be rendered.
+    ///     - index: The index of the item in the data source.
+    ///     - itemIdentifier: The identifier of the item.
+    ///     - selected: A Boolean value indicating whether the item is selected.
     public init<LabelView>(
         dataSource: LKTabDataSource<ItemIdentifier>,
         inset: NSDirectionalEdgeInsets = .init(top: 6, leading: 16, bottom: 6, trailing: 16),

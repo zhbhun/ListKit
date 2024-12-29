@@ -7,11 +7,14 @@
 //
 import UIKit
 
+/// A snapshot of the data for a flat list.
+/// This struct conforms to `LKListDataSnapshot` and is available on iOS 13.0 or later.
 @available(iOS 13.0, *)
 public struct LKFlatListDataSnapshot<ItemIdentifierType>: LKListDataSnapshot
 where
     ItemIdentifierType: Hashable, ItemIdentifierType: Sendable
 {
+    /// The underlying diffable data source snapshot.
     private var _current: NSDiffableDataSourceSnapshot<Int, ItemIdentifierType>
 
     public init() {
@@ -20,10 +23,14 @@ where
         self._current = snapshot
     }
 
+    /// Initializes a new snapshot with the given diffable data source snapshot.
+    ///
+    /// - Parameter snapshot: The diffable data source snapshot to initialize with.
     public init(_ snapshot: NSDiffableDataSourceSnapshot<Int, ItemIdentifierType>) {
         self._current = snapshot
     }
 
+    /// The diffable data source snapshot.
     public var diffableDataSourceSnapshot: NSDiffableDataSourceSnapshot<Int, ItemIdentifierType> {
         return _current
     }
@@ -74,38 +81,70 @@ where
         _current.appendItems(identifiers, toSection: 0)
     }
 
+    /// Inserts the specified items before the given item in the data snapshot.
+    ///
+    /// - Parameters:
+    ///   - identifiers: An array of item identifiers to insert.
+    ///   - beforeIdentifier: The item identifier before which the new items will be inserted.
     public mutating func insertItems(
         _ identifiers: [ItemIdentifierType], beforeItem beforeIdentifier: ItemIdentifierType
     ) {
         _current.insertItems(identifiers, beforeItem: beforeIdentifier)
     }
 
+    /// Inserts the specified items after the given item identifier.
+    ///
+    /// - Parameters:
+    ///   - identifiers: An array of item identifiers to insert.
+    ///   - afterIdentifier: The item identifier after which the new items should be inserted.
     public mutating func insertItems(
         _ identifiers: [ItemIdentifierType], afterItem afterIdentifier: ItemIdentifierType
     ) {
         _current.insertItems(identifiers, afterItem: afterIdentifier)
     }
 
+    /// Deletes the items with the specified identifiers from the current data snapshot.
+    ///
+    /// - Parameter identifiers: An array of item identifiers to be deleted.
     public mutating func deleteItems(_ identifiers: [ItemIdentifierType]) {
         _current.deleteItems(identifiers)
     }
 
+    /// Deletes all items from the current data snapshot.
     public mutating func deleteAllItems() {
         _current.deleteAllItems()
     }
 
+    ///
+    /// Moves an item identified by `identifier` to a position before another item identified by `toIdentifier`.
+    /// 
+    /// - Parameters:
+    ///   - identifier: The identifier of the item to move.
+    ///   - toIdentifier: The identifier of the item before which the item should be moved.
+    ///
     public mutating func moveItem(
         _ identifier: ItemIdentifierType, beforeItem toIdentifier: ItemIdentifierType
     ) {
         _current.moveItem(identifier, beforeItem: toIdentifier)
     }
 
+    /// Moves an item identified by `identifier` to a position after the item identified by `toIdentifier`.
+    ///
+    /// - Parameters:
+    ///   - identifier: The identifier of the item to move.
+    ///   - toIdentifier: The identifier of the item after which the item should be moved.
     public mutating func moveItem(
         _ identifier: ItemIdentifierType, afterItem toIdentifier: ItemIdentifierType
     ) {
         _current.moveItem(identifier, afterItem: toIdentifier)
     }
 
+    /// Reloads the specified items in the data snapshot.
+    ///
+    /// This method updates the current state of the data snapshot by reloading the items
+    /// identified by the given identifiers.
+    ///
+    /// - Parameter identifiers: An array of item identifiers that need to be reloaded.
     public mutating func reloadItems(_ identifiers: [ItemIdentifierType]) {
         _current.reloadItems(identifiers)
     }

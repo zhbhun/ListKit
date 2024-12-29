@@ -8,6 +8,14 @@
 import Combine
 import UIKit
 
+/// A view that displays a list of sections and items.
+/// 
+/// `LKSectionListView` is a generic class that inherits from `LKListBaseView`.
+/// It is designed to handle sections and items with specified identifiers.
+/// 
+/// - Parameters:
+///   - SectionIdentifier: The type of the section identifier.
+///   - ItemIdentifier: The type of the item identifier.
 @available(iOS 13.0, *)
 open class LKSectionListView<SectionIdentifier, ItemIdentifier>: LKListBaseView<
     SectionIdentifier, ItemIdentifier
@@ -168,6 +176,16 @@ where
         self.diffableDataSource = diffableDataSource
     }
 
+    /// Creates and returns an `LKSectionListView` instance configured with the provided parameters.
+    ///
+    /// - Parameters:
+    ///   - frame: The frame rectangle for the view, measured in points.
+    ///   - dataSource: The data source object that provides the data for the section list view.
+    ///   - scrollDirection: The scroll direction of the list view. The default value is `.vertical`.
+    ///   - resolve: A closure that resolves the section title based on the index and section identifier.
+    ///   - sections: A dictionary mapping section identifiers to their corresponding `LKListFlowSection` objects.
+    ///
+    /// - Returns: An `LKSectionListView` instance configured with the provided parameters.
     public static func flow(
         frame: CGRect,
         dataSource: LKSectionListDataSource<SectionIdentifier, ItemIdentifier>,
@@ -184,6 +202,16 @@ where
         )
     }
 
+    /// Creates a compositional `LKSectionListView` with the specified parameters.
+    ///
+    /// - Parameters:
+    ///   - frame: The frame rectangle for the view, measured in points.
+    ///   - dataSource: The data source object that provides the data for the list view.
+    ///   - scrollDirection: The scroll direction of the list view. The default value is `.vertical`.
+    ///   - resolve: A closure that resolves the section title based on the index and section identifier.
+    ///   - sections: A dictionary mapping section identifiers to their corresponding compositional sections.
+    ///
+    /// - Returns: A configured `LKSectionListView` instance.
     public static func compositional(
         frame: CGRect,
         dataSource: LKSectionListDataSource<SectionIdentifier, ItemIdentifier>,

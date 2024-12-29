@@ -9,6 +9,13 @@ import Combine
 import Dispatch
 import UIKit
 
+/// A custom scroll view that represents a tab view in the ListKit framework.
+/// 
+/// `LKTabView` is a subclass of `UIScrollView` and conforms to the `UIScrollViewDelegate` protocol.
+/// It is designed to handle tab items identified by `ItemIdentifier`.
+///
+/// - Parameters:
+///   - ItemIdentifier: The type used to uniquely identify each tab item.
 @available(iOS 13.0, *)
 public class LKTabView<ItemIdentifier>: UIScrollView, UIScrollViewDelegate
 where
@@ -25,6 +32,15 @@ where
         fatalError("init(coder:) has not been implemented")
     }
 
+    /// Initializes a new instance of `LKTabView`.
+    ///
+    /// - Parameters:
+    ///   - dataSource: The data source that provides the items for the tab view.
+    ///   - reuseLimit: The maximum number of reusable views. Defaults to `Int.max`.
+    ///   - create: A closure that creates a view for a given index and item.
+    ///     - index: The index of the item.
+    ///     - item: The item identifier.
+    /// - Returns: An optional `UIView` instance.
     public init(
         dataSource: LKTabDataSource<ItemIdentifier>,
         reuseLimit: Int = Int.max,

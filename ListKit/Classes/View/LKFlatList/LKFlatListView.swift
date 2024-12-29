@@ -8,6 +8,14 @@
 import Combine
 import UIKit
 
+/// A view that represents a flat list of items.
+/// 
+/// `LKFlatListView` is a subclass of `LKListBaseView` that uses `Int` as the section identifier and a generic type `ItemIdentifier` for the item identifier.
+/// 
+/// - Note: This class is open, so it can be subclassed.
+/// 
+/// - Parameters:
+///   - ItemIdentifier: The type used to uniquely identify items in the list.
 @available(iOS 13.0, *)
 open class LKFlatListView<ItemIdentifier>: LKListBaseView<Int, ItemIdentifier>
 where
@@ -21,6 +29,16 @@ where
         fatalError("init(coder:) has not been implemented")
     }
 
+    /// Initializes a new instance of `LKFlatListView`.
+    ///
+    /// - Parameters:
+    ///   - frame: The frame rectangle for the view, measured in points.
+    ///   - layout: The layout object to use for organizing items.
+    ///   - dataSource: The data source object that provides the data for the collection view.
+    ///   - delegate: The delegate object that handles interactions with the collection view.
+    ///   - header: An optional supplementary view to display at the top of the collection view.
+    ///   - footer: An optional supplementary view to display at the bottom of the collection view.
+    ///   - item: The item configuration for the collection view.
     public init(
         frame: CGRect,
         layout: UICollectionViewLayout,
@@ -111,7 +129,18 @@ where
         self.delegate = delegate
     }
 
-    /// Flow init
+    /// Initializes a new instance of `LKFlatListView`.
+    ///
+    /// - Parameters:
+    ///   - frame: The frame rectangle for the view, measured in points.
+    ///   - dataSource: The data source object that provides the data for the list.
+    ///   - scrollDirection: The scroll direction of the list. Default is vertical.
+    ///   - inset: The insets for the list content. Default is nil.
+    ///   - mainAxisSpacing: The spacing between items along the main axis. Default is nil.
+    ///   - crossAxisSpacing: The spacing between items along the cross axis. Default is nil.
+    ///   - header: The header configuration for the list. Default is nil.
+    ///   - footer: The footer configuration for the list. Default is nil.
+    ///   - item: The item configuration for the list.
     public init(
         frame: CGRect,
         dataSource: LKFlatListDataSource<ItemIdentifier>,
@@ -146,7 +175,20 @@ where
         )
     }
 
-    /// Flow
+    /// Creates and returns a `LKFlatListView` instance configured with the specified parameters.
+    ///
+    /// - Parameters:
+    ///   - frame: The frame rectangle for the view, measured in points.
+    ///   - dataSource: The data source object that provides the data for the list view.
+    ///   - scrollDirection: The scroll direction of the list view. The default value is `.vertical`.
+    ///   - inset: The insets for the list view's content. The default value is `nil`.
+    ///   - mainAxisSpacing: The spacing between items along the main axis. The default value is `nil`.
+    ///   - crossAxisSpacing: The spacing between items along the cross axis. The default value is `nil`.
+    ///   - header: The header configuration for the list view. The default value is `nil`.
+    ///   - footer: The footer configuration for the list view. The default value is `nil`.
+    ///   - item: The item configuration for the list view.
+    ///
+    /// - Returns: A configured `LKFlatListView` instance.
     public class func flow(
         frame: CGRect,
         dataSource: LKFlatListDataSource<ItemIdentifier>,
@@ -171,7 +213,18 @@ where
         )
     }
 
-    /// Compositional init
+    /**
+     Initializes a new instance of `LKFlatListView`.
+
+     - Parameters:
+       - frame: The frame rectangle for the view, measured in points.
+       - dataSource: The data source object that provides the data for the list.
+       - scrollDirection: The scroll direction of the list. Defaults to vertical.
+       - inset: The directional insets for the list content. Defaults to `.zero`.
+       - header: An optional compositional header for the list.
+       - footer: An optional compositional footer for the list.
+       - item: The compositional item for the list.
+     */
     public init(
         frame: CGRect,
         dataSource: LKFlatListDataSource<ItemIdentifier>,
@@ -235,7 +288,17 @@ where
         )
     }
 
-    // Compositional
+    /// Creates a compositional `LKFlatListView` with the specified parameters.
+    ///
+    /// - Parameters:
+    ///   - frame: The frame rectangle for the view, measured in points.
+    ///   - dataSource: The data source object that provides the data for the list view.
+    ///   - scrollDirection: The scroll direction of the list view. The default value is `.vertical`.
+    ///   - inset: The custom insets for the list view. The default value is `.zero`.
+    ///   - header: An optional header configuration for the list view. The default value is `nil`.
+    ///   - footer: An optional footer configuration for the list view. The default value is `nil`.
+    ///   - item: The item configuration for the list view.
+    /// - Returns: A configured `LKFlatListView` instance.
     public static func compositional(
         frame: CGRect,
         dataSource: LKFlatListDataSource<ItemIdentifier>,
