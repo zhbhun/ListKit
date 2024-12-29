@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LKListFloat Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/LKListFloat" class="dashAnchor"></a>
+    <a title="LKListFloat Structure Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">ListKit 0.1.0 Docs</a> (54% documented)</p>
+        <p class="header-right"><a href="https://github.com/zhbhun/ListKit"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <div class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">ListKit</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        <a href="../Structs.html">Structures</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        LKListFloat Structure Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/LKCompositionalBoundarySupplementary.html">LKCompositionalBoundarySupplementary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKFlatListDataSource.html">LKFlatListDataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKFlatListView.html">LKFlatListView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKFlatListViewDelegate.html">LKFlatListViewDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKFlatListViewFlowDelegate.html">LKFlatListViewFlowDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListBaseView.html">LKListBaseView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalBlock.html">LKListCompositionalBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalCell.html">LKListCompositionalCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalFooter.html">LKListCompositionalFooter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalGroup.html">LKListCompositionalGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalHeader.html">LKListCompositionalHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalItem.html">LKListCompositionalItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalSection.html">LKListCompositionalSection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalSectionBoundarySupplementary.html">LKListCompositionalSectionBoundarySupplementary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalSectionFooter.html">LKListCompositionalSectionFooter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalSectionHeader.html">LKListCompositionalSectionHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalSectionSupplementary.html">LKListCompositionalSectionSupplementary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalSupplementary.html">LKListCompositionalSupplementary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalWaterfall.html">LKListCompositionalWaterfall</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListFlowFooter.html">LKListFlowFooter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListFlowHeader.html">LKListFlowHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListFlowItem.html">LKListFlowItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListFlowSection.html">LKListFlowSection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListFlowSectionFooter.html">LKListFlowSectionFooter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListFlowSectionHeader.html">LKListFlowSectionHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListFlowSectionSupplementary.html">LKListFlowSectionSupplementary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListFlowSupplementary.html">LKListFlowSupplementary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListItem.html">LKListItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListSection.html">LKListSection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListSupplementary.html">LKListSupplementary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListViewDelegate.html">LKListViewDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKSectionListDataSource.html">LKSectionListDataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKSectionListView.html">LKSectionListView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKSectionListViewDelegate.html">LKSectionListViewDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKSectionListViewFlowDelegate.html">LKSectionListViewFlowDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKTabBar.html">LKTabBar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKTabDataSource.html">LKTabDataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKTabView.html">LKTabView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/LKListApplyMode.html">LKListApplyMode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:7ListKit18LKListDataSnapshotP">LKListDataSnapshot</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:7ListKit16LKListDataSourceP">LKListDataSource</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/LKFlatListDataSnapshot.html">LKFlatListDataSnapshot</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LKListEdgeInsets.html">LKListEdgeInsets</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LKListFloat.html">LKListFloat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LKListSize.html">LKListSize</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LKSectionListDataSnapshot.html">LKSectionListDataSnapshot</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7ListKit28LKListCompositionalDimensiona">LKListCompositionalDimension</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7ListKit14LKListItemViewa">LKListItemView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7ListKit19LKListRectAlignmenta">LKListRectAlignment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7ListKit14LKListResolvera">LKListResolver</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7ListKit18LKListReusableViewa">LKListReusableView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7ListKit21LKListScrollDirectiona">LKListScrollDirection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7ListKit10LKListViewa">LKListView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7ListKit17LKTabDataSnapshota">LKTabDataSnapshot</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7ListKit10LKTabLabela">LKTabLabel</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>LKListFloat</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LKListFloat</span></code></pre>
+
+                </div>
+              </div>
+            <p>A structure representing a list of floating-point values.</p>
+
+<p>This structure provides functionality to manage and manipulate a collection
+of <code>Float</code> values. It includes methods for adding, removing, and accessing
+elements within the list, as well as other utility functions for working
+with floating-point numbers.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit11LKListFloatV7Handlera"></a>
+                    <a name="//apple_ref/swift/Alias/Handler" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit11LKListFloatV7Handlera">Handler</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Handler</span> <span class="o">=</span> <span class="p">(</span><span class="n">_</span> <span class="nv">listView</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:7ListKit10LKListViewa">LKListView</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">,</span> <span class="n">_</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?)</span>
+    <span class="o">-&gt;</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit11LKListFloatV5fixed14CoreFoundation7CGFloatVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/fixed" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit11LKListFloatV5fixed14CoreFoundation7CGFloatVSgvp">fixed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">fixed</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit11LKListFloatV7handler14CoreFoundation7CGFloatVSo16UICollectionViewC_0G09IndexPathVypSgtcSgvp"></a>
+                    <a name="//apple_ref/swift/Property/handler" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit11LKListFloatV7handler14CoreFoundation7CGFloatVSo16UICollectionViewC_0G09IndexPathVypSgtcSgvp">handler</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">handler</span><span class="p">:</span> <span class="kt"><a href="../Structs/LKListFloat.html#/s:7ListKit11LKListFloatV7Handlera">Handler</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit11LKListFloatV7resolvey14CoreFoundation7CGFloatVSo16UICollectionViewC_0G09IndexPathVypSgtF"></a>
+                    <a name="//apple_ref/swift/Method/resolve(_:_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit11LKListFloatV7resolvey14CoreFoundation7CGFloatVSo16UICollectionViewC_0G09IndexPathVypSgtF">resolve(_:<wbr>_:<wbr>_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Resolves the height for a given cell in the list view.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">resolve</span><span class="p">(</span><span class="n">_</span> <span class="nv">listView</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:7ListKit10LKListViewa">LKListView</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">,</span> <span class="n">_</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span>
+    <span class="o">-&gt;</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>listView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The list view containing the cell.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>indexPath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The index path of the cell.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional identifier for the cell.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The height of the cell as a <code>CGFloat</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit11LKListFloatV5fixedyAC14CoreFoundation7CGFloatVFZ"></a>
+                    <a name="//apple_ref/swift/Method/fixed(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit11LKListFloatV5fixedyAC14CoreFoundation7CGFloatVFZ">fixed(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an <code>LKListFloat</code> instance with a fixed <code>CGFloat</code> value.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fixed</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">LKListFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>CGFloat</code> value to be used for the <code>LKListFloat</code> instance.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>LKListFloat</code> instance initialized with the given <code>CGFloat</code> value.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit11LKListFloatV7dynamicyAC14CoreFoundation7CGFloatVSo16UICollectionViewC_0G09IndexPathVtcFZ"></a>
+                    <a name="//apple_ref/swift/Method/dynamic(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit11LKListFloatV7dynamicyAC14CoreFoundation7CGFloatVSo16UICollectionViewC_0G09IndexPathVtcFZ">dynamic(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a dynamic <code>LKListFloat</code> instance with a handler that calculates the float value based on the provided <code>listView</code> and <code>indexPath</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">dynamic</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">handler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">listView</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:7ListKit10LKListViewa">LKListView</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGFloat</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">LKListFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>handler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure that takes an <code><a href="../Typealiases.html#/s:7ListKit10LKListViewa">LKListView</a></code> and an <code>IndexPath</code> as parameters and returns a <code>CGFloat</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>LKListFloat</code> instance that uses the provided handler to calculate the float value.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit11LKListFloatV7dynamicyAC14CoreFoundation7CGFloatVSo16UICollectionViewC_0G09IndexPathVxtcSHRzs8SendableRzlFZ"></a>
+                    <a name="//apple_ref/swift/Method/dynamic(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit11LKListFloatV7dynamicyAC14CoreFoundation7CGFloatVSo16UICollectionViewC_0G09IndexPathVxtcSHRzs8SendableRzlFZ">dynamic(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a dynamic <code>LKListFloat</code> instance with a handler that computes a <code>CGFloat</code> value based on the provided parameters.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>The <code>Identifier</code> type must conform to both <code>Hashable</code> and <code>Sendable</code> protocols.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="kd">dynamic</span><span class="o">&lt;</span><span class="kt">Identifier</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">handler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span>
+        <span class="n">_</span> <span class="nv">listView</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:7ListKit10LKListViewa">LKListView</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">,</span> <span class="n">_</span> <span class="nv">identify</span><span class="p">:</span> <span class="kt">Identifier</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGFloat</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">LKListFloat</span> <span class="k">where</span> <span class="kt">Identifier</span><span class="p">:</span> <span class="kt">Hashable</span><span class="p">,</span> <span class="kt">Identifier</span><span class="p">:</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>handler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure that takes an <code><a href="../Typealiases.html#/s:7ListKit10LKListViewa">LKListView</a></code>, an <code>IndexPath</code>, and an <code>Identifier</code>, and returns a <code>CGFloat</code> value.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code>LKListFloat</code> instance that uses the provided handler to compute its value.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit11LKListFloatV4zeroACvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/zero" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit11LKListFloatV4zeroACvpZ">zero</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A static constant representing a zero value for <code>LKListFloat</code>.
+This is a fixed value of 0.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">zero</span><span class="p">:</span> <span class="kt">LKListFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2024 <a class="link" href="https://github.com/zhbhun" target="_blank" rel="external noopener">zhbhun</a>. All rights reserved. (Last updated: 2024-12-29)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>

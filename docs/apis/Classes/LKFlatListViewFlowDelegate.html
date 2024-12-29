@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LKFlatListViewFlowDelegate Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/LKFlatListViewFlowDelegate" class="dashAnchor"></a>
+    <a title="LKFlatListViewFlowDelegate Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">ListKit 0.1.0 Docs</a> (54% documented)</p>
+        <p class="header-right"><a href="https://github.com/zhbhun/ListKit"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <div class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">ListKit</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        <a href="../Classes.html">Classes</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        LKFlatListViewFlowDelegate Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/LKCompositionalBoundarySupplementary.html">LKCompositionalBoundarySupplementary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKFlatListDataSource.html">LKFlatListDataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKFlatListView.html">LKFlatListView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKFlatListViewDelegate.html">LKFlatListViewDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKFlatListViewFlowDelegate.html">LKFlatListViewFlowDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListBaseView.html">LKListBaseView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalBlock.html">LKListCompositionalBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalCell.html">LKListCompositionalCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalFooter.html">LKListCompositionalFooter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalGroup.html">LKListCompositionalGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalHeader.html">LKListCompositionalHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalItem.html">LKListCompositionalItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalSection.html">LKListCompositionalSection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalSectionBoundarySupplementary.html">LKListCompositionalSectionBoundarySupplementary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalSectionFooter.html">LKListCompositionalSectionFooter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalSectionHeader.html">LKListCompositionalSectionHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalSectionSupplementary.html">LKListCompositionalSectionSupplementary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalSupplementary.html">LKListCompositionalSupplementary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListCompositionalWaterfall.html">LKListCompositionalWaterfall</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListFlowFooter.html">LKListFlowFooter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListFlowHeader.html">LKListFlowHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListFlowItem.html">LKListFlowItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListFlowSection.html">LKListFlowSection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListFlowSectionFooter.html">LKListFlowSectionFooter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListFlowSectionHeader.html">LKListFlowSectionHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListFlowSectionSupplementary.html">LKListFlowSectionSupplementary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListFlowSupplementary.html">LKListFlowSupplementary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListItem.html">LKListItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListSection.html">LKListSection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListSupplementary.html">LKListSupplementary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKListViewDelegate.html">LKListViewDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKSectionListDataSource.html">LKSectionListDataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKSectionListView.html">LKSectionListView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKSectionListViewDelegate.html">LKSectionListViewDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKSectionListViewFlowDelegate.html">LKSectionListViewFlowDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKTabBar.html">LKTabBar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKTabDataSource.html">LKTabDataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LKTabView.html">LKTabView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/LKListApplyMode.html">LKListApplyMode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:7ListKit18LKListDataSnapshotP">LKListDataSnapshot</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:7ListKit16LKListDataSourceP">LKListDataSource</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/LKFlatListDataSnapshot.html">LKFlatListDataSnapshot</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LKListEdgeInsets.html">LKListEdgeInsets</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LKListFloat.html">LKListFloat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LKListSize.html">LKListSize</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LKSectionListDataSnapshot.html">LKSectionListDataSnapshot</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7ListKit28LKListCompositionalDimensiona">LKListCompositionalDimension</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7ListKit14LKListItemViewa">LKListItemView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7ListKit19LKListRectAlignmenta">LKListRectAlignment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7ListKit14LKListResolvera">LKListResolver</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7ListKit18LKListReusableViewa">LKListReusableView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7ListKit21LKListScrollDirectiona">LKListScrollDirection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7ListKit10LKListViewa">LKListView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7ListKit17LKTabDataSnapshota">LKTabDataSnapshot</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7ListKit10LKTabLabela">LKTabLabel</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>LKFlatListViewFlowDelegate</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">LKFlatListViewFlowDelegate</span><span class="o">&lt;</span><span class="kt">ItemIdentifier</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Classes/LKFlatListViewDelegate.html">LKFlatListViewDelegate</a></span><span class="o">&lt;</span>
+    <span class="kt">ItemIdentifier</span>
+<span class="o">&gt;</span><span class="p">,</span>
+<span class="kt">UICollectionViewDelegateFlowLayout</span>
+<span class="k">where</span>
+    <span class="kt">ItemIdentifier</span><span class="p">:</span> <span class="kt">Hashable</span><span class="p">,</span> <span class="kt">ItemIdentifier</span><span class="p">:</span> <span class="kt">Sendable</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit06LKFlatA16ViewFlowDelegateC5insetAA16LKListEdgeInsetsVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/inset" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit06LKFlatA16ViewFlowDelegateC5insetAA16LKListEdgeInsetsVSgvp">inset</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="k">let</span> <span class="nv">inset</span><span class="p">:</span> <span class="kt"><a href="../Structs/LKListEdgeInsets.html">LKListEdgeInsets</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit06LKFlatA16ViewFlowDelegateC15mainAxisSpacingAA11LKListFloatVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/mainAxisSpacing" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit06LKFlatA16ViewFlowDelegateC15mainAxisSpacingAA11LKListFloatVSgvp">mainAxisSpacing</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="k">let</span> <span class="nv">mainAxisSpacing</span><span class="p">:</span> <span class="kt"><a href="../Structs/LKListFloat.html">LKListFloat</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit06LKFlatA16ViewFlowDelegateC16crossAxisSpacingAA11LKListFloatVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/crossAxisSpacing" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit06LKFlatA16ViewFlowDelegateC16crossAxisSpacingAA11LKListFloatVSgvp">crossAxisSpacing</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="k">let</span> <span class="nv">crossAxisSpacing</span><span class="p">:</span> <span class="kt"><a href="../Structs/LKListFloat.html">LKListFloat</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit06LKFlatA16ViewFlowDelegateC6headerAA06LKListE13SupplementaryCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/header" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit06LKFlatA16ViewFlowDelegateC6headerAA06LKListE13SupplementaryCSgvp">header</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="k">let</span> <span class="nv">header</span><span class="p">:</span> <span class="kt"><a href="../Classes/LKListFlowSupplementary.html">LKListFlowSupplementary</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit06LKFlatA16ViewFlowDelegateC6footerAA06LKListE13SupplementaryCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/footer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit06LKFlatA16ViewFlowDelegateC6footerAA06LKListE13SupplementaryCSgvp">footer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="k">let</span> <span class="nv">footer</span><span class="p">:</span> <span class="kt"><a href="../Classes/LKListFlowSupplementary.html">LKListFlowSupplementary</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit06LKFlatA16ViewFlowDelegateC4itemAA06LKListE4ItemCyxGvp"></a>
+                    <a name="//apple_ref/swift/Property/item" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit06LKFlatA16ViewFlowDelegateC4itemAA06LKListE4ItemCyxGvp">item</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="k">let</span> <span class="nv">item</span><span class="p">:</span> <span class="kt"><a href="../Classes/LKListFlowItem.html">LKListFlowItem</a></span><span class="o">&lt;</span><span class="kt">ItemIdentifier</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/LKListViewDelegate"></a>
+                <a name="//apple_ref/swift/Section/LKListViewDelegate" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/LKListViewDelegate"></a>
+                  <h3 class="section-name"><span>LKListViewDelegate</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit06LKFlatA16ViewFlowDelegateC17getItemIdentifieryxSg10Foundation9IndexPathVF"></a>
+                    <a name="//apple_ref/swift/Method/getItemIdentifier(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit06LKFlatA16ViewFlowDelegateC17getItemIdentifieryxSg10Foundation9IndexPathVF">getItemIdentifier(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">getItemIdentifier</span><span class="p">(</span><span class="n">_</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ItemIdentifier</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit06LKFlatA16ViewFlowDelegateC20getSectionIdentifierySiSgSiF"></a>
+                    <a name="//apple_ref/swift/Method/getSectionIdentifier(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit06LKFlatA16ViewFlowDelegateC20getSectionIdentifierySiSgSiF">getSectionIdentifier(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">getSectionIdentifier</span><span class="p">(</span><span class="n">_</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UICollectionViewDelegateFlowLayout"></a>
+                <a name="//apple_ref/swift/Section/UICollectionViewDelegateFlowLayout" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/UICollectionViewDelegateFlowLayout"></a>
+                  <h3 class="section-name"><span>UICollectionViewDelegateFlowLayout</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit06LKFlatA16ViewFlowDelegateC010collectionD0_6layout13sizeForItemAtSo6CGSizeVSo012UICollectionD0C_So0nD6LayoutC10Foundation9IndexPathVtF"></a>
+                    <a name="//apple_ref/swift/Method/collectionView(_:layout:sizeForItemAt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit06LKFlatA16ViewFlowDelegateC010collectionD0_6layout13sizeForItemAtSo6CGSizeVSo012UICollectionD0C_So0nD6LayoutC10Foundation9IndexPathVtF">collectionView(_:<wbr>layout:<wbr>sizeForItemAt:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">collectionView</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">collectionView</span><span class="p">:</span> <span class="kt">UICollectionView</span><span class="p">,</span> <span class="n">layout</span> <span class="nv">collectionViewLayout</span><span class="p">:</span> <span class="kt">UICollectionViewLayout</span><span class="p">,</span>
+    <span class="n">sizeForItemAt</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGSize</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit06LKFlatA16ViewFlowDelegateC010collectionD0_6layout17insetForSectionAtSo12UIEdgeInsetsVSo012UICollectionD0C_So0oD6LayoutCSitF"></a>
+                    <a name="//apple_ref/swift/Method/collectionView(_:layout:insetForSectionAt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit06LKFlatA16ViewFlowDelegateC010collectionD0_6layout17insetForSectionAtSo12UIEdgeInsetsVSo012UICollectionD0C_So0oD6LayoutCSitF">collectionView(_:<wbr>layout:<wbr>insetForSectionAt:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">collectionView</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">collectionView</span><span class="p">:</span> <span class="kt">UICollectionView</span><span class="p">,</span> <span class="n">layout</span> <span class="nv">collectionViewLayout</span><span class="p">:</span> <span class="kt">UICollectionViewLayout</span><span class="p">,</span>
+    <span class="n">insetForSectionAt</span> <span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIEdgeInsets</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit06LKFlatA16ViewFlowDelegateC010collectionD0_6layout30minimumLineSpacingForSectionAt14CoreFoundation7CGFloatVSo012UICollectionD0C_So0rD6LayoutCSitF"></a>
+                    <a name="//apple_ref/swift/Method/collectionView(_:layout:minimumLineSpacingForSectionAt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit06LKFlatA16ViewFlowDelegateC010collectionD0_6layout30minimumLineSpacingForSectionAt14CoreFoundation7CGFloatVSo012UICollectionD0C_So0rD6LayoutCSitF">collectionView(_:<wbr>layout:<wbr>minimumLineSpacingForSectionAt:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">collectionView</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">collectionView</span><span class="p">:</span> <span class="kt">UICollectionView</span><span class="p">,</span> <span class="n">layout</span> <span class="nv">collectionViewLayout</span><span class="p">:</span> <span class="kt">UICollectionViewLayout</span><span class="p">,</span>
+    <span class="n">minimumLineSpacingForSectionAt</span> <span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit06LKFlatA16ViewFlowDelegateC010collectionD0_6layout35minimumInteritemSpacingForSectionAt14CoreFoundation7CGFloatVSo012UICollectionD0C_So0rD6LayoutCSitF"></a>
+                    <a name="//apple_ref/swift/Method/collectionView(_:layout:minimumInteritemSpacingForSectionAt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit06LKFlatA16ViewFlowDelegateC010collectionD0_6layout35minimumInteritemSpacingForSectionAt14CoreFoundation7CGFloatVSo012UICollectionD0C_So0rD6LayoutCSitF">collectionView(_:<wbr>layout:<wbr>minimumInteritemSpacingForSectionAt:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">collectionView</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">collectionView</span><span class="p">:</span> <span class="kt">UICollectionView</span><span class="p">,</span> <span class="n">layout</span> <span class="nv">collectionViewLayout</span><span class="p">:</span> <span class="kt">UICollectionViewLayout</span><span class="p">,</span>
+    <span class="n">minimumInteritemSpacingForSectionAt</span> <span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit06LKFlatA16ViewFlowDelegateC010collectionD0_6layout31referenceSizeForHeaderInSectionSo6CGSizeVSo012UICollectionD0C_So0pD6LayoutCSitF"></a>
+                    <a name="//apple_ref/swift/Method/collectionView(_:layout:referenceSizeForHeaderInSection:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit06LKFlatA16ViewFlowDelegateC010collectionD0_6layout31referenceSizeForHeaderInSectionSo6CGSizeVSo012UICollectionD0C_So0pD6LayoutCSitF">collectionView(_:<wbr>layout:<wbr>referenceSizeForHeaderInSection:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">collectionView</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">collectionView</span><span class="p">:</span> <span class="kt">UICollectionView</span><span class="p">,</span> <span class="n">layout</span> <span class="nv">collectionViewLayout</span><span class="p">:</span> <span class="kt">UICollectionViewLayout</span><span class="p">,</span>
+    <span class="n">referenceSizeForHeaderInSection</span> <span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGSize</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7ListKit06LKFlatA16ViewFlowDelegateC010collectionD0_6layout31referenceSizeForFooterInSectionSo6CGSizeVSo012UICollectionD0C_So0pD6LayoutCSitF"></a>
+                    <a name="//apple_ref/swift/Method/collectionView(_:layout:referenceSizeForFooterInSection:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7ListKit06LKFlatA16ViewFlowDelegateC010collectionD0_6layout31referenceSizeForFooterInSectionSo6CGSizeVSo012UICollectionD0C_So0pD6LayoutCSitF">collectionView(_:<wbr>layout:<wbr>referenceSizeForFooterInSection:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">collectionView</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">collectionView</span><span class="p">:</span> <span class="kt">UICollectionView</span><span class="p">,</span> <span class="n">layout</span> <span class="nv">collectionViewLayout</span><span class="p">:</span> <span class="kt">UICollectionViewLayout</span><span class="p">,</span>
+    <span class="n">referenceSizeForFooterInSection</span> <span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGSize</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2024 <a class="link" href="https://github.com/zhbhun" target="_blank" rel="external noopener">zhbhun</a>. All rights reserved. (Last updated: 2024-12-29)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>
