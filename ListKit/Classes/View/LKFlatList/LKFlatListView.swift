@@ -286,6 +286,7 @@ where
             footer: footer,
             item: item
         )
+        self.initDelegate(LKFlatListViewDelegate(dataSource: dataSource))
     }
 
     /// Creates a compositional `LKFlatListView` with the specified parameters.
