@@ -10,7 +10,7 @@ import Dispatch
 import UIKit
 
 /// A custom scroll view that represents a tab view in the ListKit framework.
-/// 
+///
 /// `LKTabView` is a subclass of `UIScrollView` and conforms to the `UIScrollViewDelegate` protocol.
 /// It is designed to handle tab items identified by `ItemIdentifier`.
 ///
@@ -25,8 +25,8 @@ where
     private var cacheViews: [Int: UIView] = [:]
     private var cacheRecords: [Int] = []
     private var cacheOffsets: [Int: CGPoint] = [:]
+    private let updateSubviews = PassthroughSubject<Int, Never>()
     private var cancellables = Set<AnyCancellable>()
-    private var updateSubviews: (() -> Void)?
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -54,98 +54,108 @@ where
         delegate = self
 
         let reuseLimit = max(reuseLimit, 3)
-        let updateSubviews = { [weak self] in
-            guard let self,
-                dataSource.activeIndex >= 0,
-                dataSource.activeIndex < dataSource.numberOfItems
-            else {
-                return
+        let updateSubview = { [weak self] (index: Int) in
+            guard let self = self,
+                let item = dataSource.itemIdentifier(for: index)
+            else { return }
+            let isActive = index == self.dataSource.activeIndex
+
+            // create view
+            var itemView: UIView!
+            if let cacheView = cacheViews[item.hashValue] {
+                itemView = cacheView
+            } else {
+                itemView = create(index, item)
+                guard let view = itemView else { return }
+                cacheViews[item.hashValue] = view
             }
 
-            var indexes: [Int] = []
-            let prevIndex = dataSource.activeIndex - 1
-            if prevIndex >= 0 {
-                indexes.append(prevIndex)
+            // add view
+            if !subviews.contains(itemView) {
+                addSubview(itemView)
             }
-            let nextIndex = dataSource.activeIndex + 1
-            if nextIndex < dataSource.numberOfItems {
-                indexes.append(nextIndex)
+
+            // update view
+            let itemFrame = CGRect(
+                x: self.frame.width * CGFloat(index),
+                y: 0,
+                width: self.frame.width,
+                height: self.frame.height
+            )
+            if itemFrame != itemView.frame {
+                itemView.frame = itemFrame
             }
-            indexes.append(dataSource.activeIndex)
+            if let itemOffset = cacheOffsets[item.hashValue],
+                let scrollView = itemView as? UIScrollView
+            {
+                scrollView.contentOffset = itemOffset
+            }
 
-            for currentIndex in indexes {
-                guard let currentItem = dataSource.itemIdentifier(for: currentIndex)
-                else { continue }
+            // record cache
+            let cacheRecordIndex = cacheRecords.firstIndex(where: {
+                $0 == item.hashValue
+            })
+            if isActive {
+                if let cacheRecordIndex {
+                    cacheRecords.remove(at: cacheRecordIndex)
+                }
+                cacheRecords.append(item.hashValue)
+            } else if cacheRecordIndex == nil {
+                cacheRecords.insert(item.hashValue, at: max(0, cacheRecords.count - 1))
+            }
 
-                // create view
-                let cacheView = cacheViews[currentItem.hashValue]
-                var currentView: UIView?
-                if cacheView == nil {
-                    currentView = create(currentIndex, currentItem)
-                } else {
-                    currentView = cacheView
+            // check cache
+            if cacheViews.count > reuseLimit,
+                let oldestItem = cacheRecords.first
+            {
+                let cacheView = cacheViews[oldestItem]
+                if let scrollView = cacheView as? UIScrollView {
+                    cacheOffsets[oldestItem] = scrollView.contentOffset
                 }
-                guard let currentView else {
-                    cacheView?.removeFromSuperview()
-                    continue
-                }
-                cacheViews[currentItem.hashValue] = currentView
+                cacheView?.removeFromSuperview()
+                cacheViews.removeValue(forKey: oldestItem)
+                cacheRecords.remove(at: 0)
 
-                // add view
-                if let cacheView, currentView != cacheView {
-                    cacheView.removeFromSuperview()
-                }
-                if !subviews.contains(currentView) {
-                    addSubview(currentView)
-                }
-
-                // update view
-                let currentRect = CGRect(
-                    x: frame.width * CGFloat(currentIndex),
-                    y: 0,
-                    width: frame.width,
-                    height: frame.height
-                )
-                if currentRect != currentView.frame {
-                    currentView.frame = currentRect
-                }
-                if let contentOffset = cacheOffsets[currentItem.hashValue],
-                    let currentView = currentView as? UIScrollView
-                {
-                    currentView.contentOffset = contentOffset
-                }
-
-                // record cache
-                let cacheRecordIndex = cacheRecords.firstIndex(where: {
-                    $0 == currentItem.hashValue
-                })
-                if currentIndex == dataSource.activeIndex {
-                    if let cacheRecordIndex {
-                        cacheRecords.remove(at: cacheRecordIndex)
-                    }
-                    cacheRecords.append(currentItem.hashValue)
-                } else if cacheRecordIndex == nil {
-                    cacheRecords.append(currentItem.hashValue)
-                }
-
-                // check cache
-                if cacheViews.count > reuseLimit,
-                    let oldestItem = cacheRecords.first
-                {
-                    let cacheView = cacheViews[oldestItem]
-                    if let scrollView = cacheView as? UIScrollView {
-                        cacheOffsets[oldestItem] = scrollView.contentOffset
-                    }
-                    cacheView?.removeFromSuperview()
-                    cacheViews.removeValue(forKey: oldestItem)
-                    cacheRecords.remove(at: 0)
-
-                }
             }
         }
-        self.updateSubviews = updateSubviews
+        updateSubviews
+            .debounce(for: .seconds(0.3), scheduler: RunLoop.main)
+            .sink { [weak self] newIndex in
+                guard let self,
+                    newIndex >= 0,
+                    newIndex < dataSource.numberOfItems
+                else {
+                    return
+                }
+                updateSubview(newIndex)
+            }
+            .store(in: &cancellables)
+        updateSubviews
+            .debounce(for: .seconds(0.3), scheduler: RunLoop.main)
+            .sink { [weak self] newIndex in
+                guard let self,
+                    newIndex >= 0,
+                    newIndex < dataSource.numberOfItems,
+                    newIndex == dataSource.activeIndex
+                else {
+                    return
+                }
+                var prepareIndexes: [Int] = []
+                let previousIndex = dataSource.activeIndex - 1
+                if previousIndex >= 0 {
+                    prepareIndexes.append(previousIndex)
+                }
+                let nextIndex = dataSource.activeIndex + 1
+                if nextIndex < dataSource.numberOfItems {
+                    prepareIndexes.append(nextIndex)
+                }
+                for currentIndex in prepareIndexes {
+                    updateSubview(currentIndex)
+                }
+            }
+            .store(in: &cancellables)
 
-        updateSubviews()
+        updateSubviews.send(dataSource.activeIndex)
         var lastTabs = dataSource.itemIdentifiers.map { $0.hashValue }
         dataSource.change.receive(on: DispatchQueue.main)
             .sink { [weak self] (snapshot, mode) in
@@ -159,7 +169,7 @@ where
                         cacheOffsets.removeValue(forKey: tab)
                     }
                     lastTabs = currentTabs
-                    updateSubviews()
+                    updateSubviews.send(dataSource.activeIndex)
                 }
             }.store(in: &cancellables)
 
@@ -175,7 +185,7 @@ where
                     return
                 }
                 // 处理非用户滑动产生的 tab 切换
-                updateSubviews()
+                updateSubviews.send(newIndex)
                 setContentOffset(
                     CGPoint(
                         x: Double(newIndex) * Double(frame.width),
@@ -242,7 +252,7 @@ where
         if isUseDragging,
             beginDraggingIndex != dataSource.activeIndex
         {
-            updateSubviews?()
+            updateSubviews.send(dataSource.activeIndex)
         }
         isUseDragging = false
         beginDraggingIndex = -1
