@@ -119,9 +119,9 @@ where
             }
         }
         updateSubviews
-            .debounce(for: .seconds(0.3), scheduler: RunLoop.main)
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] newIndex in
-                guard let self,
+                guard let _ = self,
                     newIndex >= 0,
                     newIndex < dataSource.numberOfItems
                 else {
@@ -173,10 +173,10 @@ where
                 }
             }.store(in: &cancellables)
 
-        dataSource.$activeIndex
+        dataSource.animationIndex
             .dropFirst()
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] newIndex in
+            .sink { [weak self] (newIndex, animated) in
                 guard let self = self,
                     !isDragging,
                     newIndex >= 0,
@@ -191,7 +191,7 @@ where
                         x: Double(newIndex) * Double(frame.width),
                         y: 0
                     ),
-                    animated: true
+                    animated: animated
                 )
             }.store(in: &cancellables)
     }

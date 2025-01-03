@@ -164,10 +164,10 @@ where
 
         // watch active index
         var animationWork: DispatchWorkItem? = nil
-        dataSource.$activeIndex
+        dataSource.animationIndex
             .dropFirst()
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] newIndex in
+            .sink { [weak self] (newIndex, animated) in
                 guard let self,
                     newIndex >= 0,
                     newIndex < dataSource.numberOfItems
@@ -206,10 +206,10 @@ where
                     self.container.scrollToItem(
                         at: newIndexPath,
                         at: .centeredHorizontally,
-                        animated: true
+                        animated: animated
                     )
                     // update indicator
-                    updateIndicator(animation: true)
+                    updateIndicator(animated: animated)
                 }
                 if let work = animationWork {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.05, execute: work)
@@ -222,7 +222,7 @@ where
         cancellables.removeAll()
     }
 
-    private func updateIndicator(animation: Bool = false) {
+    private func updateIndicator(animated: Bool = false) {
         guard
             dataSource.activeIndex >= 0,
             dataSource.activeIndex < dataSource.numberOfItems,
@@ -246,7 +246,7 @@ where
             indicatorFrame.size.width = targetFrame.size.width
         }
         indicatorFrame.size.height = indicatorWeight
-        if animation {
+        if animated {
             UIView.animate(withDuration: indicatorAnimationDuration) { [weak self] in
                 self?.indicator.frame = indicatorFrame
             }
