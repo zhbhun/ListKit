@@ -478,7 +478,7 @@ where
             group = NSCollectionLayoutGroup.custom(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1),
-                    heightDimension: .estimated(0)
+                    heightDimension: .estimated(1)
                 )
             ) { [weak self] environment in
                 guard let self = self else {
@@ -514,7 +514,7 @@ where
             group = NSCollectionLayoutGroup.custom(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1.0),
-                    heightDimension: .estimated(0)
+                    heightDimension: .estimated(1)
                 )
             ) { [weak self] environment in
                 guard let self = self else {

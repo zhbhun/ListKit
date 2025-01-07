@@ -165,7 +165,6 @@ where
         // watch active index
         var animationWork: DispatchWorkItem? = nil
         dataSource.animationIndex
-            .dropFirst()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] (newIndex, animated) in
                 guard let self,

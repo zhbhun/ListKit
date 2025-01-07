@@ -121,7 +121,7 @@ where
         updateSubviews
             .receive(on: DispatchQueue.main)
             .sink { [weak self] newIndex in
-                guard let _ = self,
+                guard self != nil,
                     newIndex >= 0,
                     newIndex < dataSource.numberOfItems
                 else {
@@ -133,7 +133,7 @@ where
         updateSubviews
             .debounce(for: .seconds(0.3), scheduler: RunLoop.main)
             .sink { [weak self] newIndex in
-                guard let self,
+                guard self != nil,
                     newIndex >= 0,
                     newIndex < dataSource.numberOfItems,
                     newIndex == dataSource.activeIndex
@@ -174,7 +174,6 @@ where
             }.store(in: &cancellables)
 
         dataSource.animationIndex
-            .dropFirst()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] (newIndex, animated) in
                 guard let self = self,
@@ -196,12 +195,27 @@ where
             }.store(in: &cancellables)
     }
 
+    private var lastHeight: Double = 0
+
     public override func layoutSubviews() {
         super.layoutSubviews()
+
+        var isNeedSyncHeight = false
+
+        let isHeightChanged = lastHeight != frame.height
+        if isHeightChanged {
+            lastHeight = frame.height
+            isNeedSyncHeight = true
+        }
 
         let contentWidth = frame.width * CGFloat(dataSource.numberOfItems)
         if contentWidth != contentSize.width {
             updateContent()
+            isNeedSyncHeight = false
+        }
+
+        if isNeedSyncHeight {
+            updateSubviews.send(dataSource.activeIndex)
         }
     }
 
