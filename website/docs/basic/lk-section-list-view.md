@@ -1,44 +1,23 @@
 ---
-id: intro
-title: 介绍
-sidebar_position: 1
+id: lk-section-list-view
+title: LKSectionListView
+description: A view that represents a flat list of items.
+sidebar_label: 'LKSectionListView'
+sidebar_position: 2
 ---
 
-ListKit 是一个轻量级、高度灵活的列表组件封装库，基于 UICollectionView 提供数据驱动、声明式的 API，轻松实现多种布局和动态交互。
+LKSectionListView 是一个高性能的分组(section)列表组件。
 
-## 特性
+## 何时使用
 
-- 数据驱动：通过快照（snapshot）轻松实现数据的动态更新和动画刷新。
-- 声明式 API：提供直观、简洁的声明式接口，支持更快速地创建复杂列表布局。
-- 提供了多种列表，满足不同使用场景的需求
+- 当有大量结构化的数据需要分组展现时；
+- 当需要对数据进行选择、排序和自定义操作等复杂行为时。
 
-  - LKFlatListView：简单列表组件，
-  - LKSectionListView：分组列表组件
-  - LKTabBar：选项卡页签栏组件
-  - LKTabView：选项卡视图组件，允许通过滑动或切换选项卡来显示不同的内容视图。
-
-- 提供了多种布局模式：
-
-  - Flow：对应 UICollectionViewLayout
-  - Compositional：对应 UICollectionViewCompositionalLayout
-  - Waterfall：自定义的瀑布流布局
-
-## 要求
-
-iOS 13.*
-
-## 安装
-
-ListKit is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'ListKit'
-```
-
-## 使用
+## 如何使用
 
 1. 定义数据模型
+
+  数据模型必须实现 Hashable 协议。
 
   ```swift
   class Item: Hashable {
@@ -120,3 +99,32 @@ pod 'ListKit'
       print(">> \(item.id)")
   }
   ```
+## 代码示例
+
+### 数据源管理
+
+### 流式布局
+
+#### 头/尾配置
+
+#### 列表项配置
+
+### 组合布局
+
+#### 头/尾设置
+
+#### “区块“列表项配置
+
+#### “单元格“列表项配置
+
+#### ”瀑布流“列表项配置
+
+#### ”自定义“列表项配置
+
+
+## 接口文档
+
+- [LKSectionListView](https://listkit.pages.dev/documentation/listkit/lksectionlistview)
+- [LKSectionListDataSource](https://listkit.pages.dev/documentation/listkit/lksectionlistdatasource)
+- [LKListFlowSection](https://listkit.pages.dev/documentation/listkit/lklistflowsection)
+- [LKListCompositionalSection](https://listkit.pages.dev/documentation/listkit/lklistcompositionalsection)
