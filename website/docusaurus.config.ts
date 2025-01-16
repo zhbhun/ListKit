@@ -7,13 +7,13 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'ListKit',
   tagline: '轻量级、高度灵活的列表组件库',
-  favicon: 'img/favicon.ico',
+  favicon: '/ListKit/img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://zhbhun.github.io/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/ListKit/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.

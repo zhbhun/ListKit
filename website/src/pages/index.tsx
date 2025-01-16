@@ -13,7 +13,7 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <img className={styles.logo} src="/img/logo.png" />
+        <img className={styles.logo} src="/ListKit/img/logo.png" />
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
