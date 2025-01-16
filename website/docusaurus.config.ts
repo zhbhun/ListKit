@@ -130,7 +130,7 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
     tableOfContents: {
-      minHeadingLevel: 1,
+      minHeadingLevel: 2,
       maxHeadingLevel: 3,
     },
   } satisfies Preset.ThemeConfig,
