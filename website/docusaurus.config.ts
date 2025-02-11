@@ -133,7 +133,7 @@ const config: Config = {
     },
     tableOfContents: {
       minHeadingLevel: 2,
-      maxHeadingLevel: 3,
+      maxHeadingLevel: 4,
     },
   } satisfies Preset.ThemeConfig,
 };
