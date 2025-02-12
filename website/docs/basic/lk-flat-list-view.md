@@ -419,14 +419,14 @@ let listView = LKFlatListView<Item>.compositional(
         render: { (cell: CustomCell, indexPath, item) in
             cell.configure(item)
         }
-    ).onDidSelectItemAt { listView, indexPath, itemIdentifier in
-        print(">> did select item at: \(itemIdentifier.title)")
-    }.onWillDisplayItemAt { listView, view, indexPath, itemIdentifier in
-        print(">> will display item at: \(itemIdentifier.title)")
-    }.onDidDisplayItemAt { listView, view, indexPath, itemIdentifier in
-        print(">> did display item at: \(itemIdentifier.title)")
-    }
-)
+    )
+).onDidSelectItemAt { listView, indexPath, itemIdentifier in
+    print(">> did select item at: \(itemIdentifier.title)")
+}.onWillDisplayItemAt { listView, view, indexPath, itemIdentifier in
+    print(">> will display item at: \(itemIdentifier.title)")
+}.onDidDisplayItemAt { listView, view, indexPath, itemIdentifier in
+    print(">> did display item at: \(itemIdentifier.title)")
+}
 ```
 
 ## 接口文档
